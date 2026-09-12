@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dn7nn18x04jpx"]
+
+[ext_resource type="Script" uid="uid://dfwy3rptyjsbj" path="res://characters/player.gd" id="1_3eadt"]
+[ext_resource type="Texture2D" uid="uid://6essbsyu5f28" path="res://art/splash/gbjamsplash.png" id="2_tory2"]
+
+[node name="Player" type="Node2D" unique_id=1187504730]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1344795770]
+script = ExtResource("1_3eadt")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=367177565]
+position = Vector2(8, 7.999999)
+scale = Vector2(0.1, 0.11111111)
+texture = ExtResource("2_tory2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1876417181]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1880719749]
+visible = false
