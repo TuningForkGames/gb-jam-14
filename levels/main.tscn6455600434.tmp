@@ -89,7 +89,7 @@ tile_set = SubResource("TileSet_wc3wh")
 stream = ExtResource("3_l8qe7")
 autoplay = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1768326474 node_paths=PackedStringArray("playerNode")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1768326474 node_paths=PackedStringArray("player")]
 position = Vector2(80, 72)
 script = ExtResource("4_m1504")
-playerNode = NodePath("../Player")
+player = NodePath("../Player")

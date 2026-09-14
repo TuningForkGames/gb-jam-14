@@ -184,8 +184,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8qe7"]
-size = Vector2(16, 11.428572)
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0v65"]
+radius = 9.0
 
 [node name="Player" type="Node2D" unique_id=1187504730]
 
@@ -208,8 +208,6 @@ sprite_frames = SubResource("SpriteFrames_k7shm")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1880719749]
-position = Vector2(0, 4)
+position = Vector2(0, 1.0000002)
 scale = Vector2(0.7, 0.7)
-shape = SubResource("RectangleShape2D_l8qe7")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2073096200]
+shape = SubResource("CircleShape2D_v0v65")
