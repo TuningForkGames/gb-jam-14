@@ -2,6 +2,13 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 @onready var _animated_sprite = $AnimatedSprite2D
+@export var can_move : bool = true:
+	set(new_move):
+		if not new_move:
+			velocity = Vector2.ZERO
+			_animated_sprite.stop()
+			
+		can_move = new_move
 
 func set_animation():
 	var animation_to_run
@@ -21,6 +28,7 @@ func set_animation():
 	
 
 func get_input():
+	if not can_move: return
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	set_animation()
 	velocity = input_direction * SPEED
