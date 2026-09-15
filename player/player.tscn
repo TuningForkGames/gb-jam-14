@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfwy3rptyjsbj" path="res://player/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://b3x2ukptoa7ck" path="res://art/characters/player/PlayerCharacter.png" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_g1dw6"]
 
 [sub_resource type="Animation" id="Animation_65viv"]
 length = 0.001
@@ -211,3 +212,6 @@ animation = &"walk_down"
 position = Vector2(0, 1.0000002)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_v0v65")
+
+[node name="Health-System" type="Node" parent="CharacterBody2D" unique_id=289323815]
+script = ExtResource("3_g1dw6")
