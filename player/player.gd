@@ -13,6 +13,7 @@ const SPEED = 100.0
 		can_move = new_move
 
 func _ready() -> void:
+	add_to_group("Player")
 	_health_system.health_changed.connect( _health_changed)
 	_health_system.died.connect(_died)
 

@@ -10,10 +10,10 @@ var current_cell 		= Vector2i(0,0)
 var transitioning 		: bool = false
 
 @export var player		: CharacterBody2D
-@export var playerNode	: Node2D
+#@export var playerNode	: Node2D
 
 func _ready() -> void:
-	player = playerNode.get_child(1)
+	#player = playerNode
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 	current_cell = floor(player.global_position / SCREEN)
 	global_position = current_cell * SCREEN
