@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0gqnrqn4wxgx"]
+
+[ext_resource type="Script" uid="uid://b25tblbx7byg6" path="res://scripts/interaction/interacting_component.gd" id="1_tldv0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6svg0"]
+radius = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc3wh"]
+font_color = Color(0.26666668, 0.52156866, 0.1882353, 1)
+
+[node name="InteractingComponent" type="Node2D" unique_id=1710920989]
+script = ExtResource("1_tldv0")
+
+[node name="InteractRange" type="Area2D" parent="." unique_id=716303682]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=1444154585]
+shape = SubResource("CircleShape2D_6svg0")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=2036889356]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 30.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Interact"
+label_settings = SubResource("LabelSettings_wc3wh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

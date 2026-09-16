@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bt1l3pueceyf2" path="res://audio/AStrangeLand.wav" id="3_l8qe7"]
 [ext_resource type="Script" uid="uid://dy1gr7njqctev" path="res://scripts/camera/camera-transition.gd" id="4_m1504"]
 [ext_resource type="PackedScene" uid="uid://djc62om3bfkmk" path="res://pickups/coin.tscn" id="5_ifaiv"]
+[ext_resource type="PackedScene" uid="uid://bfu4da8v5yl2e" path="res://items/exploding_barrel.tscn" id="6_5k4jt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw30f"]
 
@@ -96,3 +97,6 @@ position = Vector2(71, 59)
 
 [node name="Coin" parent="." unique_id=120324233 instance=ExtResource("5_ifaiv")]
 position = Vector2(89, 71)
+
+[node name="Area2D" parent="." unique_id=1236439756 instance=ExtResource("6_5k4jt")]
+position = Vector2(120, 88)
