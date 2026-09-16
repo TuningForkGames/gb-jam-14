@@ -29,6 +29,10 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="gb-jam-14"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rider-plugin/plugin.cfg")
+
 [input]
 
 left={
@@ -93,6 +97,7 @@ start={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=16.0
 
 [rendering]
 
