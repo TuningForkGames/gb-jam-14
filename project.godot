@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gb-jam-14"
-run/main_scene="uid://66bsg30ycmfx"
+run/main_scene="uid://qgqtudrw2g3t"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,6 +32,8 @@ project/assembly_name="gb-jam-14"
 [global_group]
 
 Player="Easy way to check if entity is player"
+Pickups="use this group to check if entity is a pickup"
+RoomManager="Easy way to quickly ref RoomManager"
 
 [input]
 
