@@ -12,9 +12,12 @@ var _hop_target: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	#There's probably a better way to do this, but it works
 	var root = get_tree().current_scene
-	_player = root.find_child("Player", true, false).find_child("CharacterBody2D", true, false)	
+	_player = root.find_child("Player", true, false) as CharacterBody2D	
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished);
 	$HopCooldownTimer.start()
+	
+	if _player == null:
+		print("wtf")
 	
 func _physics_process(delta: float) -> void:
 	if _is_hopping:

@@ -29,11 +29,9 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="gb-jam-14"
 
-
 [global_group]
 
 Player="Easy way to check if entity is player"
-
 
 [input]
 
