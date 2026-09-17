@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dfwy3rptyjsbj" path="res://player/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://b3x2ukptoa7ck" path="res://art/characters/player/PlayerCharacter.png" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://b0gqnrqn4wxgx" path="res://scripts/interaction/interacting_component.tscn" id="4_yw30f"]
 
 [sub_resource type="Animation" id="Animation_65viv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +28,7 @@ step = 0.33333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -187,27 +189,32 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0v65"]
 radius = 9.0
 
-[node name="Player" type="Node2D" unique_id=1187504730]
+[node name="Player" type="CharacterBody2D" unique_id=1164926984]
+script = ExtResource("1_3eadt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=278240835]
 libraries/ = SubResource("AnimationLibrary_s7qer")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1344795770]
-script = ExtResource("1_3eadt")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=367177565]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=367177565]
 visible = false
+z_index = 1
 position = Vector2(8, 7.999999)
 scale = Vector2(0.1, 0.11111111)
 texture = SubResource("CompressedTexture2D_g1dw6")
 hframes = 4
 vframes = 8
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1876417181]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876417181]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_k7shm")
 animation = &"walk_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1880719749]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880719749]
 position = Vector2(0, 1.0000002)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_v0v65")
+
+[node name="Health-System" type="Node" parent="." unique_id=289323815]
+script = ExtResource("3_g1dw6")
+
+[node name="InteractingComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]

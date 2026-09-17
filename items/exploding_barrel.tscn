@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bfu4da8v5yl2e"]
+
+[ext_resource type="Script" uid="uid://g66hd00j2fb2" path="res://items/exploding_barrel.gd" id="1_nkr7u"]
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="1_nq1j6"]
+[ext_resource type="PackedScene" uid="uid://dnt4udh3cqokr" path="res://scripts/interaction/interactable.tscn" id="2_nui5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nui5e"]
+atlas = ExtResource("1_nq1j6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkr7u"]
+atlas = ExtResource("1_nq1j6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ji3"]
+atlas = ExtResource("1_nq1j6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sk0k"]
+atlas = ExtResource("1_nq1j6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc3wh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nui5e")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkr7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ji3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sk0k")
+}],
+"loop": 1,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6svg0"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc3wh"]
+radius = 16.0
+
+[node name="Area2D" type="Area2D" unique_id=1236439756]
+script = ExtResource("1_nkr7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=377528033]
+sprite_frames = SubResource("SpriteFrames_wc3wh")
+animation = &"explosion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1895450011]
+shape = SubResource("CapsuleShape2D_6svg0")
+
+[node name="Interactable" parent="." unique_id=2029395275 instance=ExtResource("2_nui5e")]
+interact_name = "Pickup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1769570904]
+shape = SubResource("CircleShape2D_wc3wh")

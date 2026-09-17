@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://iefr3etrs64w"]
+
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="1_xmgdp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbylt"]
+atlas = ExtResource("1_xmgdp")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qu25"]
+atlas = ExtResource("1_xmgdp")
+region = Rect2(48, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbylt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qu25")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 5.0
+}]
