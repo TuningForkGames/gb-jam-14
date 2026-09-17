@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="2_wdj6m"]
 [ext_resource type="PackedScene" uid="uid://ccr2n1bk0mgft" path="res://core/door.tscn" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://bfu4da8v5yl2e" path="res://items/exploding_barrel.tscn" id="4_o6mel"]
+[ext_resource type="PackedScene" uid="uid://b825dtmd0efex" path="res://characters/enemies/Mimic.tscn" id="5_e7anx"]
 [ext_resource type="PackedScene" uid="uid://djc62om3bfkmk" path="res://pickups/coin.tscn" id="5_ifaiv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w7r7j"]
@@ -94,3 +96,9 @@ position = Vector2(164, 72)
 target_room = "uid://pt363e6y665x"
 target_entry = "DoorExit"
 direction = Vector2(1, 0)
+
+[node name="Area2D" parent="." unique_id=1236439756 instance=ExtResource("4_o6mel")]
+position = Vector2(112, 81)
+
+[node name="CharacterBody2D" parent="." unique_id=379363098 instance=ExtResource("5_e7anx")]
+position = Vector2(77, 29)

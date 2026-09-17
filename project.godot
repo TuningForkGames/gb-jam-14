@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gb-jam-14"
-run/main_scene="uid://qgqtudrw2g3t"
+run/main_scene="uid://dnpu3ar150cdt"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
