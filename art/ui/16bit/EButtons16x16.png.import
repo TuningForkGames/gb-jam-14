@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buoovut4tbbgg"
-path="res://.godot/imported/DebugFloor.png-b19e6bc7f11ff30993228126212c194e.ctex"
+uid="uid://crwhuv2s4iuv1"
+path="res://.godot/imported/EButtons16x16.png-2d9bd739619beb07c6410dbf4aef3e38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/DebugFloor.png"
-dest_files=["res://.godot/imported/DebugFloor.png-b19e6bc7f11ff30993228126212c194e.ctex"]
+source_file="res://art/ui/16bit/EButtons16x16.png"
+dest_files=["res://.godot/imported/EButtons16x16.png-2d9bd739619beb07c6410dbf4aef3e38.ctex"]
 
 [params]
 

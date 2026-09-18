@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dknic7n4my1dk"
-path="res://.godot/imported/DebugWal2l.png-293acf50061c8d32feb00fcfe4b98559.ctex"
+uid="uid://desmsnf6gl46j"
+path="res://.godot/imported/bombanimation-sheet.png-9966494963b5666fe0849d2055b79462.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/DebugWal2l.png"
-dest_files=["res://.godot/imported/DebugWal2l.png-293acf50061c8d32feb00fcfe4b98559.ctex"]
+source_file="res://art/objects/bombanimation-sheet.png"
+dest_files=["res://.godot/imported/bombanimation-sheet.png-9966494963b5666fe0849d2055b79462.ctex"]
 
 [params]
 
