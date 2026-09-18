@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx6plvdsycftt"
-path="res://.godot/imported/a-btn-variations.png-d3a97fc0f6282b32576d43bea5943000.ctex"
+uid="uid://sa00m3gt3mdh"
+path="res://.godot/imported/Abuttons8x8.png-357f079d9b0991f5a334e0db5117b60f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/a-btn-variations.png"
-dest_files=["res://.godot/imported/a-btn-variations.png-d3a97fc0f6282b32576d43bea5943000.ctex"]
+source_file="res://art/ui/8bit/Abuttons8x8.png"
+dest_files=["res://.godot/imported/Abuttons8x8.png-357f079d9b0991f5a334e0db5117b60f.ctex"]
 
 [params]
 
