@@ -3,8 +3,7 @@ extends Area2D
 
 @export var interact_name: String = ""
 @export var is_interactable: bool = true
-enum weight {light, normal, heavy}
-@export var interactable_weight:weight = weight.normal
+@export var weight:GB_GLOBALS.ItemWeight = GB_GLOBALS.ItemWeight.normal
 
 var interact: Callable = func():
 	pass
