@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfwy3rptyjsbj" path="res://player/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://b3x2ukptoa7ck" path="res://art/characters/player/PlayerCharacter.png" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://b0gqnrqn4wxgx" path="res://scripts/interaction/interacting_component.tscn" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://b0gqnrqn4wxgx" path="res://scripts/interaction/player_interacting_component.tscn" id="4_yw30f"]
 
 [sub_resource type="Animation" id="Animation_65viv"]
 length = 0.001

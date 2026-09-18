@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0gqnrqn4wxgx"]
 
-[ext_resource type="Script" uid="uid://b25tblbx7byg6" path="res://scripts/interaction/interacting_component.gd" id="1_tldv0"]
+[ext_resource type="Script" uid="uid://b25tblbx7byg6" path="res://scripts/interaction/player_interacting_component.gd" id="1_emjmr"]
+[ext_resource type="Texture2D" uid="uid://lvbs06k2hsiu" path="res://art/_archive/a-btn.png" id="2_kly7h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6svg0"]
 radius = 16.0
@@ -8,8 +9,12 @@ radius = 16.0
 [sub_resource type="LabelSettings" id="LabelSettings_wc3wh"]
 font_color = Color(0.26666668, 0.52156866, 0.1882353, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6svg0"]
+atlas = ExtResource("2_kly7h")
+region = Rect2(0, 0, 16, 16)
+
 [node name="InteractingComponent" type="Node2D" unique_id=1710920989]
-script = ExtResource("1_tldv0")
+script = ExtResource("1_emjmr")
 
 [node name="InteractRange" type="Area2D" parent="." unique_id=716303682]
 collision_layer = 0
@@ -31,10 +36,17 @@ offset_right = 30.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Interact"
 label_settings = SubResource("LabelSettings_wc3wh")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="InteractLabel" unique_id=1629230515]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_6svg0")
 
 [connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

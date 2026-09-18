@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dknic7n4my1dk"
-path="res://.godot/imported/DebugWal2l.png-293acf50061c8d32feb00fcfe4b98559.ctex"
+uid="uid://ndj7byr5gyo5"
+path="res://.godot/imported/QButtons8x8.png-36adc534d56859321c7323cd92da9d49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/DebugWal2l.png"
-dest_files=["res://.godot/imported/DebugWal2l.png-293acf50061c8d32feb00fcfe4b98559.ctex"]
+source_file="res://art/ui/8bit/QButtons8x8.png"
+dest_files=["res://.godot/imported/QButtons8x8.png-36adc534d56859321c7323cd92da9d49.ctex"]
 
 [params]
 
