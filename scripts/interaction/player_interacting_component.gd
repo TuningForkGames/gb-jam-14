@@ -9,11 +9,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("a_btn") and can_interact:
 		if current_interactions:
 			can_interact = false
-			interact_label.hide()			
+			interact_label.hide()
 			await current_interactions[0].interact.call()
 			
 			can_interact = true
-	
 
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:

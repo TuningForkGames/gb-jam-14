@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://b0gqnrqn4wxgx"]
 
 [ext_resource type="Script" uid="uid://b25tblbx7byg6" path="res://scripts/interaction/player_interacting_component.gd" id="1_emjmr"]
 [ext_resource type="Texture2D" uid="uid://lvbs06k2hsiu" path="res://art/_archive/a-btn.png" id="2_kly7h"]
+=======
+[gd_scene format=3 uid="uid://bw1lds6x2w4xv"]
+
+[ext_resource type="Script" path="res://scripts/interaction/player_interacting_component.gd" id="1_emjmr"]
+[ext_resource type="Texture2D" path="res://art/_archive/a-btn.png" id="2_kly7h"]
+>>>>>>> main
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6svg0"]
 radius = 16.0
