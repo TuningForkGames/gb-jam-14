@@ -6,9 +6,7 @@ class_name Pickup
 func _ready() -> void:
 	if not item_data :
 		push_error("You need to set item data in the inspector. Pickup needing item data is ", name)
-		printerr("You need to set item data in the inspector. Pickup needing item data is ", name)
 		return
-	print("Pickup loaded")
 	setup_animation_sprite()
 	body_entered.connect(pickup_item)
 	
