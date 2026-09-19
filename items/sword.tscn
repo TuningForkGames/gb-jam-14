@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://bos8j4dn2uyiu"]
 
 [ext_resource type="Script" uid="uid://25y434g6xmad" path="res://scripts/interaction/slot_item.gd" id="1_d3ybf"]
+[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="2_d3ybf"]
 [ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="3_3m3he"]
+
+[sub_resource type="Resource" id="Resource_o6mel"]
+script = ExtResource("2_d3ybf")
+metadata/_custom_type_script = "uid://ce07ksuunku8f"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr6qr"]
 atlas = ExtResource("3_3m3he")
@@ -16,6 +21,7 @@ input_pickable = true
 linear_damp = 0.1
 angular_damp = 1.0
 script = ExtResource("1_d3ybf")
+item_data = SubResource("Resource_o6mel")
 metadata/_custom_type_script = "uid://25y434g6xmad"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=82312368]

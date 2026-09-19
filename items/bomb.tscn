@@ -5,8 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://desmsnf6gl46j" path="res://art/objects/bombanimation-sheet.png" id="3_6uah4"]
 [ext_resource type="Texture2D" uid="uid://byuuhvi45w0mo" path="res://art/objects/bombanimation23frames.png" id="3_tqfld"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw46u"]
+atlas = ExtResource("3_tqfld")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bpca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw46u")
+}],
+"loop": 1,
+"name": &"holding",
+"speed": 5.0
+}]
+
 [sub_resource type="Resource" id="Resource_wc3wh"]
 script = ExtResource("2_tqfld")
+frames = SubResource("SpriteFrames_3bpca")
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnnoo"]
@@ -99,10 +115,6 @@ region = Rect2(336, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqfld"]
 atlas = ExtResource("3_tqfld")
 region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hw46u"]
-atlas = ExtResource("3_tqfld")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6uah4"]
 animations = [{
@@ -202,3 +214,4 @@ shape = SubResource("CircleShape2D_lnnoo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1225503513]
 sprite_frames = SubResource("SpriteFrames_6uah4")
+animation = &"holding"

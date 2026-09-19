@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 func HandleEquippedToSlot():
 	pass
 
-func _on_interact():
+func _on_interact(input):
+	print(input)
 	queue_free()
 
 
