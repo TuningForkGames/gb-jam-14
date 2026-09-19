@@ -162,6 +162,7 @@ shape = SubResource("CapsuleShape2D_emjmr")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=289323815]
 script = ExtResource("3_g1dw6")
+startingHP = 2
 
 [node name="InteractComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]
 interactAreaSize = Vector2(8, 8)

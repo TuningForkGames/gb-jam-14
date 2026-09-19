@@ -11,7 +11,7 @@ signal playerHasDied
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var healthComponent : Health = $HealthComponent
-@onready var interactComponent = $InteractComponent 
+@onready var interactComponent = $InteractComponent
 
 var can_move : bool = true:
 	set(new_move):
@@ -34,8 +34,8 @@ func _ready() -> void:
 		# No saved data exists! (e.g., New Game / Just testing the scene)
 		# Push the component's default values up to the global tracker
 		GameManager.saveHealth(healthComponent.curr_hp, healthComponent.max_hp)
-	
-	healthComponent.health_changed.connect(health_changed)
+		
+	healthComponent.health_changed.connect(healthChanged)
 	healthComponent.died.connect(onDeath)
 	healthComponent.died.connect(GameManager.handlePlayerDeath)
 	
@@ -73,10 +73,13 @@ func movePlayer():
 		interactComponent.updateInteractDirection(input_direction)
 	
 
-func health_changed(current, max_hp):
+func healthChanged(current):
 	# Player animation and audio plays: heal
 	pass
 
+func maxHealthChanged(current):
+	# Player animation and audio plays: max health increased
+	pass
 
 func onDeath():
 	# Player animation and audio plays: death
