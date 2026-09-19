@@ -5,8 +5,7 @@ extends Interactable
 var _player
 
 func _ready() -> void:
-	interact = _on_interact
-	self.interactable_type = IType.throwable_light
+	interact = _on_interact	
 	_player = get_tree().current_scene.find_child("Player", true, false)
 
 func _on_interact():
