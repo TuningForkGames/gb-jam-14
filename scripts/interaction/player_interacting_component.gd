@@ -6,8 +6,6 @@ extends Node2D
 @onready var interact_label: Label = $InteractLabel
 @onready var player_inventory: PlayerInventory = $"../Inventory"
 
-
-
 var current_interactions := []
 var can_interact := true
 
