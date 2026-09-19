@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://c20jd2ex40ygt"]
+
+[ext_resource type="Texture2D" uid="uid://stqjw1bwkv6h" path="res://ui/TextBox.png" id="1_aaqae"]
+[ext_resource type="Texture2D" uid="uid://c4gqku4nctf1b" path="res://ui/Heart_8px.png" id="2_aaqae"]
+[ext_resource type="Texture2D" uid="uid://cjble61egtf3c" path="res://ui/DialogueBox.png" id="2_jd13s"]
+[ext_resource type="FontFile" uid="uid://bsadhxumf4hg" path="res://ui/fonts/MinecraftRegular-Bmg3.otf" id="3_jd13s"]
+[ext_resource type="Texture2D" uid="uid://lsechs560lgx" path="res://ui/Coin_8px.png" id="5_pom5v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sb6sy"]
+font = ExtResource("3_jd13s")
+font_size = 10
+font_color = Color(0, 0.07450981, 0.101960786, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=522953989]
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=777856195]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -49.0
+offset_right = 80.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_jd13s")
+patch_margin_top = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="." unique_id=907901439]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -66.0
+offset_right = -34.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_aaqae")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1383315700]
+offset_top = 132.0
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.9764706, 1, 0.7019608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2008552090]
+offset_top = 131.0
+offset_right = 160.0
+offset_bottom = 132.0
+color = Color(0, 0.07450981, 0.101960786, 1)
+
+[node name="HeartFull" type="Sprite2D" parent="." unique_id=2073620508]
+position = Vector2(6, 138)
+texture = ExtResource("2_aaqae")
+
+[node name="HeartFull2" type="Sprite2D" parent="." unique_id=1129012428]
+position = Vector2(16, 138)
+texture = ExtResource("2_aaqae")
+
+[node name="HeartFull3" type="Sprite2D" parent="." unique_id=472427512]
+position = Vector2(26, 138)
+texture = ExtResource("2_aaqae")
+
+[node name="HeartFull4" type="Sprite2D" parent="." unique_id=1532911672]
+position = Vector2(36, 138)
+texture = ExtResource("2_aaqae")
+
+[node name="Label" type="Label" parent="." unique_id=874340990]
+offset_left = 4.0
+offset_top = 102.0
+offset_right = 156.0
+offset_bottom = 125.0
+text = "It's dangerous to go alone! Take this."
+label_settings = SubResource("LabelSettings_sb6sy")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="." unique_id=1192556614]
+offset_left = 6.0
+offset_top = 81.0
+offset_right = 43.0
+offset_bottom = 91.0
+text = "Old Man"
+label_settings = SubResource("LabelSettings_sb6sy")
+autowrap_mode = 3
+
+[node name="Coin8Px" type="Sprite2D" parent="." unique_id=502779389]
+position = Vector2(133, 138)
+texture = ExtResource("5_pom5v")
+
+[node name="Label3" type="Label" parent="." unique_id=2082757221]
+offset_left = 140.0
+offset_top = 133.0
+offset_right = 158.0
+offset_bottom = 143.0
+text = "000"
+label_settings = SubResource("LabelSettings_sb6sy")
+autowrap_mode = 3
