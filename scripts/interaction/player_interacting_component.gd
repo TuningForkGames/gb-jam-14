@@ -28,8 +28,8 @@ func _sort_by_nearest(area1, area2):
 	var area2_dist = global_position.distance_to(area2.global_position)
 	return area1_dist < area2_dist
 
-func _on_interact_range_area_entered(area: Area2D) -> void:
-	current_interactions.push_back(area)
-	
-func _on_interact_range_area_exited(area: Area2D) -> void:
-	current_interactions.erase(area)
+func _on_interact_range_body_exited(body: Node2D) -> void:
+	current_interactions.erase(body)
+
+func _on_interact_range_body_entered(body: Node2D) -> void:
+	current_interactions.push_back(body)

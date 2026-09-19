@@ -49,5 +49,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_wc3wh")
 
-[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
-[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]
+[connection signal="body_entered" from="InteractRange" to="." method="_on_interact_range_body_entered"]
+[connection signal="body_exited" from="InteractRange" to="." method="_on_interact_range_body_exited"]

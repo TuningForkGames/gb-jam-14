@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vhnirdcgy7k8" path="res://items/bomb.gd" id="1_lnnoo"]
 [ext_resource type="Texture2D" uid="uid://desmsnf6gl46j" path="res://art/objects/bombanimation-sheet.png" id="2_tqfld"]
+[ext_resource type="Texture2D" uid="uid://byuuhvi45w0mo" path="res://art/objects/bombanimation23frames.png" id="3_tqfld"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0x0m"]
 radius = 8.000001
@@ -90,8 +91,12 @@ region = Rect2(320, 0, 16, 16)
 atlas = ExtResource("2_tqfld")
 region = Rect2(336, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqfld"]
+atlas = ExtResource("3_tqfld")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw46u"]
-atlas = ExtResource("2_tqfld")
+atlas = ExtResource("3_tqfld")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wc3wh"]
@@ -166,16 +171,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hw46u")
+"texture": SubResource("AtlasTexture_tqfld")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw46u")
+}],
+"loop": 1,
+"name": &"holding",
+"speed": 5.0
 }]
 
-[node name="Bomb" type="Area2D" unique_id=831011719]
+[node name="Bomb" type="RigidBody2D" unique_id=1585613770]
 collision_layer = 2
 collision_mask = 0
+input_pickable = true
 script = ExtResource("1_lnnoo")
 metadata/_custom_type_script = "uid://bkbpqsbftca3b"
 
@@ -185,4 +199,3 @@ shape = SubResource("CircleShape2D_s0x0m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736183109]
 sprite_frames = SubResource("SpriteFrames_wc3wh")
-frame_progress = 0.9350143
