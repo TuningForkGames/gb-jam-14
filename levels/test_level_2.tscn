@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccr2n1bk0mgft" path="res://core/door.tscn" id="2_rp2j6"]
 [ext_resource type="PackedScene" uid="uid://bos8j4dn2uyiu" path="res://items/sword.tscn" id="3_rp2j6"]
 [ext_resource type="Resource" uid="uid://dbouqbilh2e18" path="res://resources/sword.tres" id="4_dar1n"]
-[ext_resource type="PackedScene" uid="uid://71t5u5xdxoyt" path="res://items/bomb.tscn" id="6_r5uxk"]
+[ext_resource type="PackedScene" uid="uid://cp8gk2s7aoeqv" path="res://items/bomb.tscn" id="6_r5uxk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m1504"]
 
@@ -84,7 +84,7 @@ tile_set = SubResource("TileSet_d6nfl")
 
 [node name="Door" parent="." unique_id=1574549728 instance=ExtResource("2_rp2j6")]
 position = Vector2(-3, 72)
-target_room = "uid://66bsg30ycmfx"
+target_room = "uid://c58yc15168ous"
 target_entry = "DoorExit"
 direction = Vector2(-1, 0)
 
@@ -96,7 +96,9 @@ position = Vector2(69, 68)
 item_data = ExtResource("4_dar1n")
 interact_name = null
 is_interactable = null
-interactable_type = null
 
-[node name="Bomb" parent="." unique_id=1585613770 instance=ExtResource("6_r5uxk")]
+[node name="Bomb" parent="." unique_id=2006356975 instance=ExtResource("6_r5uxk")]
+position = Vector2(120, 104)
+
+[node name="Bomb2" parent="." unique_id=271798805 instance=ExtResource("6_r5uxk")]
 position = Vector2(104, 104)

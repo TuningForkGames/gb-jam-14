@@ -24,3 +24,4 @@ enum Weight{
 @export var quantity			: int
 @export var is_consumable 		: bool
 @export var item_weight			: Weight = Weight.normal
+@export var item_script			: GDScript

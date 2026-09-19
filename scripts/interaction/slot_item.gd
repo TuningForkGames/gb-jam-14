@@ -1,6 +1,6 @@
 extends Interactable
 
-class_name TwoHandedItem
+class_name SlotItem
 
 @export var item_data: ItemData
 

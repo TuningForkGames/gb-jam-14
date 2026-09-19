@@ -1,40 +1,23 @@
-[gd_scene format=3 uid="uid://bkhn3fh3bunjt"]
+[gd_scene format=3 uid="uid://dg0yjpb2txafn"]
 
-[ext_resource type="Script" uid="uid://25y434g6xmad" path="res://scripts/interaction/slot_item.gd" id="1_ady8i"]
-[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="2_yyf2j"]
-[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="3_ap7du"]
+[ext_resource type="Script" uid="uid://cxfl6sn4g5ahs" path="res://scripts/interaction/two_handed_item.gd" id="1_02tg2"]
+[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="2_lhrcm"]
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="2_oulyp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hmmn6"]
-atlas = ExtResource("2_yyf2j")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6svg0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hmmn6")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Resource" id="Resource_wc3wh"]
-script = ExtResource("3_ap7du")
-item_name = "ExplodingBarrel"
-frames = SubResource("SpriteFrames_6svg0")
+[sub_resource type="Resource" id="Resource_xmgdp"]
+script = ExtResource("2_lhrcm")
 item_weight = 2
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkr7u"]
-atlas = ExtResource("2_yyf2j")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhrcm"]
+atlas = ExtResource("2_oulyp")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wc3wh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nkr7u")
+"texture": SubResource("AtlasTexture_lhrcm")
 }],
 "loop": 1,
 "name": &"default",
@@ -42,18 +25,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6svg0"]
-size = Vector2(16, 8)
+size = Vector2(16.5, 11.25)
 
-[node name="TwoHandedItem" type="RigidBody2D" unique_id=1607012626]
-z_index = 1
-collision_mask = 2
-script = ExtResource("1_ady8i")
-item_data = SubResource("Resource_wc3wh")
-metadata/_custom_type_script = "uid://25y434g6xmad"
+[node name="ExplodingBarrel" type="RigidBody2D" unique_id=1181512001]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_02tg2")
+item_data = SubResource("Resource_xmgdp")
+metadata/_custom_type_script = "uid://cxfl6sn4g5ahs"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=806318652]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=991966825]
 sprite_frames = SubResource("SpriteFrames_wc3wh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286010948]
-position = Vector2(0, 4)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=988990783]
+position = Vector2(0, 2.375)
 shape = SubResource("RectangleShape2D_6svg0")
