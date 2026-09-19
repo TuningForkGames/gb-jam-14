@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://66bsg30ycmfx"]
+[gd_scene format=4 uid="uid://c58yc15168ous"]
 
 [ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="2_wdj6m"]
 [ext_resource type="PackedScene" uid="uid://ccr2n1bk0mgft" path="res://core/door.tscn" id="3_gmgay"]

@@ -1,4 +1,5 @@
 class_name Interactable
+
 extends RigidBody2D
 
 enum IType {

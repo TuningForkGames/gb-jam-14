@@ -162,5 +162,5 @@ script = ExtResource("3_g1dw6")
 
 [node name="InteractingComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]
 
-[node name="Node" type="Node" parent="." unique_id=2027279614]
+[node name="Inventory" type="Node" parent="." unique_id=2027279614]
 script = ExtResource("5_qjkh3")
