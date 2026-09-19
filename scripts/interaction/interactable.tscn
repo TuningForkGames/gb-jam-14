@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dnt4udh3cqokr"]
-
-[ext_resource type="Script" uid="uid://bkbpqsbftca3b" path="res://scripts/interaction/interactable.gd" id="1_7ar4o"]
-
-[node name="Interactable" type="RigidBody2D" unique_id=810373684]
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("1_7ar4o")

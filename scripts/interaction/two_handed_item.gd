@@ -1,6 +1,6 @@
 extends Interactable
 
-class_name SlotItem
+class_name TwoHandedItem
 
 @export var item_data: ItemData
 
@@ -18,3 +18,9 @@ func HandleEquippedToSlot():
 
 func _on_interact():
 	queue_free()
+
+
+#func _handle_type_of_item
+	#if exploding barrel
+	#if big_rock
+	#if 
