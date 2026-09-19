@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://v3dy6mgjrthb"]
 
+[ext_resource type="Script" uid="uid://qm40cfppew3s" path="res://core/main.gd" id="1_kagtj"]
 [ext_resource type="AudioStream" uid="uid://bt1l3pueceyf2" path="res://audio/AStrangeLand.wav" id="1_lxi2f"]
 [ext_resource type="Script" uid="uid://dy1gr7njqctev" path="res://scripts/camera/camera-transition.gd" id="2_r0yqt"]
 [ext_resource type="PackedScene" uid="uid://dn7nn18x04jpx" path="res://player/player.tscn" id="3_ue3ht"]
 [ext_resource type="Script" uid="uid://bopoythef6gqc" path="res://scripts/systems/room-manager.gd" id="4_1u4v4"]
+[ext_resource type="PackedScene" uid="uid://c20jd2ex40ygt" path="res://ui/HUD.tscn" id="5_xa854"]
 
 [node name="main" type="Node" unique_id=728287180]
+script = ExtResource("1_kagtj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=605488031]
 stream = ExtResource("1_lxi2f")
@@ -32,3 +35,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HUD" parent="." unique_id=522953989 instance=ExtResource("5_xa854")]
