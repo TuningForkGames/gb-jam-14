@@ -7,9 +7,11 @@ class_name Player
 @export var acceleration: float = 30
 #@export var pushStrength: float = 500
 
+signal playerHasDied
+
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var healthComponent : Health = $HealthComponent
-@onready var interactComponent = $InteractComponent
+@onready var interactComponent = $InteractComponent 
 
 var can_move : bool = true:
 	set(new_move):
@@ -35,6 +37,7 @@ func _ready() -> void:
 	
 	healthComponent.health_changed.connect(health_changed)
 	healthComponent.died.connect(onDeath)
+	healthComponent.died.connect(GameManager.handlePlayerDeath)
 	
 func _physics_process(delta: float) -> void:
 	if healthComponent.bIsDead:
@@ -77,9 +80,15 @@ func health_changed(current, max_hp):
 
 func onDeath():
 	# Player animation and audio plays: death
-	pass
+	# Alert GameManager of Player Death
+	playerHasDied.emit()
+	print("Player is DEAD")
 
 
 func onRespawn():
 	print("PLAYER HP RESET")
 	get_tree().call_deferred("reload_current_scene")
+
+func onEnemyEntered(body):
+	print("An enemy entered your hitbox")
+	healthComponent.take_damage(1)

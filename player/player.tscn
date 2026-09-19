@@ -142,10 +142,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emjmr"]
-radius = 4.0
+radius = 3.0
 height = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb6sy"]
+radius = 3.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1164926984 groups=["Player"]]
+collision_layer = 32
+collision_mask = 39
 script = ExtResource("1_3eadt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876417181]
@@ -164,3 +169,13 @@ interactNudgeDistance = 8.0
 
 [node name="Inventory" type="Node" parent="." unique_id=2027279614]
 script = ExtResource("5_qjkh3")
+
+[node name="HitBoxArea2D" type="Area2D" parent="." unique_id=104728425]
+collision_layer = 32
+collision_mask = 16
+
+[node name="HitBoxCollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D" unique_id=1955841756]
+shape = SubResource("CircleShape2D_sb6sy")
+debug_color = Color(0.9841061, 0, 0.3511703, 0.41960785)
+
+[connection signal="body_entered" from="HitBoxArea2D" to="." method="onEnemyEntered"]

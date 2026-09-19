@@ -308,6 +308,7 @@ animations = [{
 radius = 9.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=379363098]
+collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_6mnsi")
 jump_distance = 24.0
