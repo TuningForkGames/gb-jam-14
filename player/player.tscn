@@ -149,7 +149,6 @@ height = 12.0
 script = ExtResource("1_3eadt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876417181]
-z_index = 1
 sprite_frames = SubResource("SpriteFrames_k7shm")
 animation = &"walk_down"
 
@@ -160,7 +159,6 @@ shape = SubResource("CapsuleShape2D_emjmr")
 script = ExtResource("3_g1dw6")
 
 [node name="InteractComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]
-z_index = 2
 interactAreaSize = Vector2(8, 8)
 interactNudgeDistance = 8.0
 

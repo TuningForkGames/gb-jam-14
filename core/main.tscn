@@ -15,10 +15,12 @@ autoplay = true
 position = Vector2(80, 72)
 script = ExtResource("2_r0yqt")
 
-[node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
-
 [node name="RoomManager" type="Node" parent="." unique_id=1437557577 groups=["RoomManager"]]
 script = ExtResource("4_1u4v4")
+
+[node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1287416532]
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=2052046908]
 layer = 10
