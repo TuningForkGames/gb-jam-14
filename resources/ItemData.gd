@@ -8,6 +8,12 @@ enum Effect{
 	Quest_Item
 }
 
+enum Weight{
+	normal,
+	light,
+	heavy
+}
+
 @export var item_name			: String
 @export var frames				: SpriteFrames	# For non staic thigns like the coin.
 @export var animation_name		: String		# name of animation to play if exist
@@ -17,3 +23,4 @@ enum Effect{
 @export var player_use_anim_name: String
 @export var quantity			: int
 @export var is_consumable 		: bool
+@export var item_weight			: Weight = Weight.normal
