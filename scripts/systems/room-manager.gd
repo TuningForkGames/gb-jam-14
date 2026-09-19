@@ -10,7 +10,7 @@ class_name RoomManager
 ##
 
 #this will hold the path to the first room
-@export_file("*.tscn") var start_room_path = "res://levels/test_level.tscn"
+@export_file("*.tscn") var start_room_path = "res://levels/World1_1.tscn"
 
 var bTransitioning : bool = false
 var player : CharacterBody2D
@@ -59,7 +59,7 @@ func load_room(path : String, entry_name : String) -> bool:
 	await get_tree().physics_frame
 	if old_room:
 		old_room.queue_free()
-	player.global_position = _get_spawn_loc(entry_name)
+	#player.global_position = _get_spawn_loc(entry_name)
 		
 	return true
 
