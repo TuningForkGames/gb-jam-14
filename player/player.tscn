@@ -141,8 +141,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v0v65"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emjmr"]
+radius = 4.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1164926984 groups=["Player"]]
 script = ExtResource("1_3eadt")
@@ -153,14 +154,15 @@ sprite_frames = SubResource("SpriteFrames_k7shm")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880719749]
-position = Vector2(0, 1.0000002)
-scale = Vector2(0.7, 0.7)
-shape = SubResource("CircleShape2D_v0v65")
+shape = SubResource("CapsuleShape2D_emjmr")
 
-[node name="Health-System" type="Node" parent="." unique_id=289323815]
+[node name="HealthComponent" type="Node" parent="." unique_id=289323815]
 script = ExtResource("3_g1dw6")
 
-[node name="InteractingComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]
+[node name="InteractComponent" parent="." unique_id=1710920989 instance=ExtResource("4_yw30f")]
+z_index = 2
+interactAreaSize = Vector2(8, 8)
+interactNudgeDistance = 8.0
 
 [node name="Inventory" type="Node" parent="." unique_id=2027279614]
 script = ExtResource("5_qjkh3")

@@ -1,61 +1,85 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 100.0
-@onready var _animated_sprite = $AnimatedSprite2D
-@onready var _health_system : Health = $"Health-System"
-@export var can_move : bool = true:
+# Set Initial Player Specific Defaults
+@export var MaxSpeed: float = 100.0
+@export var canMoveDiagonally: bool = true
+@export var acceleration: float = 30
+#@export var pushStrength: float = 500
+
+@onready var animatedSprite = $AnimatedSprite2D
+@onready var healthComponent : Health = $HealthComponent
+@onready var interactComponent = $InteractComponent
+
+var can_move : bool = true:
 	set(new_move):
 		if not new_move:
 			velocity = Vector2.ZERO
-			if _animated_sprite:
-				_animated_sprite.stop()
+			if animatedSprite:
+				animatedSprite.stop()
 			
 		can_move = new_move
 
 func _ready() -> void:
 	add_to_group("Player")
-	_health_system.health_changed.connect( _health_changed)
-	_health_system.died.connect(_died)
-
-func set_animation():
-	if(_health_system.is_dead): return
 	
-	var animation_to_run
-	if Input.is_action_pressed("left"):
-		animation_to_run = "walk_left"
-	elif Input.is_action_pressed("right"):
-		animation_to_run = "walk_right"
-	elif Input.is_action_pressed("up"):
-		animation_to_run = "walk_up"
-	elif Input.is_action_pressed("down"):
-		animation_to_run = "walk_down"
-		
-	if animation_to_run != null:
-		_animated_sprite.play(animation_to_run)
+	# Check if the global vault actually has active mid-game data
+	if GameManager.savedHP != -1:
+		# Override the local health defaults with the saved game data
+		healthComponent.max_hp = GameManager.savedMaxHP
+		healthComponent.hp = GameManager.savedHP
 	else:
-		_animated_sprite.stop()
+		# No saved data exists! (e.g., New Game / Just testing the scene)
+		# Push the component's default values up to the global tracker
+		GameManager.saveHealth(healthComponent.curr_hp, healthComponent.max_hp)
 	
-
-func get_input():
-	if not can_move: return
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	################### DELETE LATER #######################################
-	if(Input.is_key_pressed(KEY_R)):
-		_health_system.take_damage(5)
-	if(Input.is_key_pressed(KEY_H)):
-		_health_system.heal(5)
-	#########################################################################
-	set_animation()
-	velocity = input_direction * SPEED
-
+	healthComponent.health_changed.connect(health_changed)
+	healthComponent.died.connect(onDeath)
+	
 func _physics_process(delta: float) -> void:
-	get_input()
+	if healthComponent.bIsDead:
+		return
+	
+	if can_move: 
+		movePlayer()
+	
 	move_and_slide()
 
-func _health_changed(current, max_hp):
-	print("Current hp = ", current, "Max is = ", max_hp)
 
-func _died():
-	can_move = false
-	print("Player died")
+func movePlayer(): 
+	# Get you input vector
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	
+	# Set player velocity with acceleration rate
+	velocity = velocity.move_toward(input_direction * MaxSpeed, acceleration)
+	
+	# Play proper walking animation
+	if Input.is_action_pressed("left"):
+		animatedSprite.play("walk_left")
+	elif Input.is_action_pressed("right"):
+		animatedSprite.play("walk_right")
+	elif Input.is_action_pressed("up"):
+		animatedSprite.play("walk_up")
+	elif Input.is_action_pressed("down"):
+		animatedSprite.play("walk_down")
+	else:
+		animatedSprite.stop()
+	
+	# Update the inteaction area's position
+	if input_direction != Vector2.ZERO:
+		interactComponent.updateInteractDirection(input_direction)
+	
+
+func health_changed(current, max_hp):
+	# Player animation and audio plays: heal
+	pass
+
+
+func onDeath():
+	# Player animation and audio plays: death
+	pass
+
+
+func onRespawn():
+	print("PLAYER HP RESET")
+	get_tree().call_deferred("reload_current_scene")
