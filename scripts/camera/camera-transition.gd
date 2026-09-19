@@ -14,7 +14,7 @@ extends Camera2D
 ##
 
 #Constants
-const SCREEN 			= Vector2(160,144)
+const SCREEN 			= Vector2(160,128)
 const TRANSITION_TIME 	= 0.4 #seconds
 const NUDGE				= 10 #pixels
 
