@@ -1,13 +1,13 @@
 extends Area2D
 
-@onready var interactable: Area2D = $Interactable
+@onready var interactable: Interactable = $Interactable
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var _player
 
 func _ready() -> void:
 	interactable.interact = _on_interact
-	interactable.weight = GB_GLOBALS.ItemWeight.heavy
+	#self.interactable_type =
 	_player = get_tree().current_scene.find_child("Player", true, false)
 
 func _on_interact():
