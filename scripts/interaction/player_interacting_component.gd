@@ -1,10 +1,18 @@
 extends Node2D
 
+@export var interactAreaSize: Vector2 = Vector2(10, 10)
+@export var interactNudgeDistance: float = 16
+
 @onready var interact_label: Label = $InteractLabel
 @onready var player_inventory: PlayerInventory = $"../Inventory"
 
+
+
 var current_interactions := []
 var can_interact := true
+
+func _ready() -> void:
+	%InteractArea.shape.size = interactAreaSize
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("a_btn") and can_interact:	
@@ -24,6 +32,16 @@ func _process(_delta: float) -> void:
 			interact_label.show()
 	else:
 		interact_label.hide()
+
+
+func updateInteractDirection(facingDirection: Vector2) -> void:
+	# Avoid shifting if the player isn't moving/pressing a direction
+	if facingDirection == Vector2.ZERO:
+		return
+		
+	# Normalize and apply the nudge offset relative to the player
+	position = facingDirection.normalized() * interactNudgeDistance
+
 
 func _sort_by_nearest(area1, area2):
 	var area1_dist = global_position.distance_to(area1.global_position)
