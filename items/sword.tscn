@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bos8j4dn2uyiu"]
+
+[ext_resource type="Script" uid="uid://25y434g6xmad" path="res://scripts/interaction/slot_item.gd" id="1_d3ybf"]
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="3_3m3he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr6qr"]
+atlas = ExtResource("3_3m3he")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr6qr"]
+
+[node name="SlotItem" type="RigidBody2D" unique_id=285770295]
+collision_layer = 2
+collision_mask = 0
+input_pickable = true
+linear_damp = 0.1
+angular_damp = 1.0
+script = ExtResource("1_d3ybf")
+metadata/_custom_type_script = "uid://25y434g6xmad"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=82312368]
+texture = SubResource("AtlasTexture_cr6qr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222832943]
+shape = SubResource("CircleShape2D_cr6qr")

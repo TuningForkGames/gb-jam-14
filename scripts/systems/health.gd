@@ -2,11 +2,12 @@ extends Node
 class_name Health
 
 #Health Component
+@export var startingHP	: int = 1
+@export var max_hp 		: int = 5
+var curr_hp 			: int
 @export var invuln_time	: float = 0.8
 var invuln_until_ms		: float = 0
-@export var max_hp 		: int = 25
-var hp 					: int
-var is_dead				: bool = false
+var bIsDead				: bool = false
 
 #signals
 signal health_changed(current, max)
@@ -14,7 +15,7 @@ signal died
 
 func _ready() -> void:
 	if max_hp > 0:
-		hp = max_hp
+		curr_hp = startingHP
 	else:
 		push_error("Max HP isn't set.")
 		
@@ -23,18 +24,18 @@ func _ready() -> void:
 
 #use this function to pass a whole positive int for damge e.g take_damage(5)
 func take_damage(amount : int):
-	if Time.get_ticks_msec() < invuln_until_ms or is_dead: return
+	if Time.get_ticks_msec() < invuln_until_ms or bIsDead: return
 	
-	hp = clampi(hp - amount, 0, max_hp)
-	health_changed.emit(hp, max_hp)
-	if hp == 0:
-		is_dead = true
+	curr_hp = clampi(curr_hp - amount, 0, max_hp)
+	health_changed.emit(curr_hp, max_hp)
+	if curr_hp == 0:
+		bIsDead = true
 		died.emit()
 	else:
 		invuln_until_ms = Time.get_ticks_msec() + invuln_time * 1000
 
 #use this function to pass a whole positive int for healing e.g heal(5)
 func heal(amount : int):
-	if is_dead: return
-	hp = clampi(hp + amount, 0, max_hp)
-	health_changed.emit(hp, max_hp)
+	if bIsDead: return
+	curr_hp = clampi(curr_hp + amount, 0, max_hp)
+	health_changed.emit(curr_hp, max_hp)

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/interaction/player_interacting_component.gd" id="1_6sdoe"]
 [ext_resource type="Texture2D" uid="uid://b74c37adf7cmx" path="res://art/ui/16bit/Abuttons16X16.png" id="2_emjmr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6svg0"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxhi2"]
+size = Vector2(10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wc3wh"]
 font_color = Color(0.26666668, 0.52156866, 0.1882353, 1)
@@ -17,11 +17,12 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_6sdoe")
 
 [node name="InteractRange" type="Area2D" parent="." unique_id=716303682]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=1444154585]
-shape = SubResource("CircleShape2D_6svg0")
+[node name="InteractArea" type="CollisionShape2D" parent="InteractRange" unique_id=1444154585]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_gxhi2")
 
 [node name="InteractLabel" type="Label" parent="." unique_id=2036889356]
 z_index = 10
@@ -49,5 +50,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_wc3wh")
 
-[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
-[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]
+[connection signal="body_entered" from="InteractRange" to="." method="_on_interact_range_body_entered"]
+[connection signal="body_exited" from="InteractRange" to="." method="_on_interact_range_body_exited"]

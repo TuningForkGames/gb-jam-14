@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b0s72dbf1ote4"]
 
-[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://pickups/ItemData.gd" id="1_1stjx"]
+[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="1_1stjx"]
 [ext_resource type="SpriteFrames" uid="uid://iefr3etrs64w" path="res://art/spriteframes/coin_sprite_frames.tres" id="1_4wynp"]
 
 [resource]
@@ -10,4 +10,5 @@ frames = ExtResource("1_4wynp")
 animation_name = "spin"
 effect = 1
 value = 1
+is_consumable = true
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
