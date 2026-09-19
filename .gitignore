@@ -99,3 +99,4 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/rider
 override.cfg
+addons/rider-plugin/bin/windows/~rider-gdextension.windows.editor.x86_64.dll
