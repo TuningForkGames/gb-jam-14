@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://v3dy6mgjrthb"]
 
 [ext_resource type="Script" uid="uid://qm40cfppew3s" path="res://core/main.gd" id="1_kagtj"]
-[ext_resource type="AudioStream" uid="uid://bt1l3pueceyf2" path="res://audio/AStrangeLand.wav" id="1_lxi2f"]
+[ext_resource type="AudioStream" uid="uid://3rrmkheio8ft" path="res://audio/AStrangeDungeon.wav" id="2_kagtj"]
 [ext_resource type="Script" uid="uid://dy1gr7njqctev" path="res://scripts/camera/camera-transition.gd" id="2_r0yqt"]
 [ext_resource type="PackedScene" uid="uid://dn7nn18x04jpx" path="res://player/player.tscn" id="3_ue3ht"]
 [ext_resource type="PackedScene" uid="uid://csgmbtq3lodxs" path="res://levels/World1_1.tscn" id="4_kagtj"]
@@ -11,7 +11,8 @@
 script = ExtResource("1_kagtj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=605488031]
-stream = ExtResource("1_lxi2f")
+stream = ExtResource("2_kagtj")
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=486854286]
 position = Vector2(80, 72)
