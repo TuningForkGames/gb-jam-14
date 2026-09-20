@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="1_dcagp"]
 [ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="1_kr6k7"]
-[ext_resource type="PackedScene" uid="uid://bos8j4dn2uyiu" path="res://items/sword.tscn" id="2_taahv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_taahv"]
 atlas = ExtResource("1_dcagp")
@@ -21,7 +20,8 @@ animations = [{
 
 [resource]
 script = ExtResource("1_kr6k7")
-item_prefab = ExtResource("2_taahv")
+item_name = "Sword"
+prefab_path = "uid://bos8j4dn2uyiu"
 frames = SubResource("SpriteFrames_cr6qr")
 effect = 2
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
