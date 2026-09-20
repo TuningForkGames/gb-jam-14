@@ -1,25 +1,15 @@
-[gd_scene format=3 uid="uid://djc62om3bfkmk"]
+[gd_scene format=3 uid="uid://b63wyqqrykued"]
 
-[ext_resource type="Script" uid="uid://drjm0whiu5omh" path="res://scripts/systems/pickups.gd" id="1_mbylt"]
-[ext_resource type="Resource" uid="uid://b0s72dbf1ote4" path="res://resources/coin.tres" id="2_mbylt"]
+[ext_resource type="PackedScene" uid="uid://c2xg6iakdlii3" path="res://pickups/pickup.tscn" id="1_72qll"]
+[ext_resource type="Script" uid="uid://dudg3npaepxyb" path="res://pickups/coin.gd" id="2_4qu25"]
 [ext_resource type="SpriteFrames" uid="uid://iefr3etrs64w" path="res://art/spriteframes/coin_sprite_frames.tres" id="3_4qu25"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t2dwb"]
-radius = 5.0990195
+[node name="Pickup" unique_id=657009517 instance=ExtResource("1_72qll")]
+script = ExtResource("2_4qu25")
+CoinValue = 1
+itemName = "Coin"
 
-[node name="Coin" type="Area2D" unique_id=120324233 groups=["Pickups"]]
-collision_layer = 2
-collision_mask = 32
-script = ExtResource("1_mbylt")
-item_data = ExtResource("2_mbylt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1342432504]
-texture_filter = 1
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1365809836]
 sprite_frames = ExtResource("3_4qu25")
 animation = &"spin"
 autoplay = "spin"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521897140]
-shape = SubResource("CircleShape2D_t2dwb")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=148736375]

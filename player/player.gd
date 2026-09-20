@@ -5,9 +5,11 @@ class_name Player
 @export var MaxSpeed: float = 100.0
 @export var canMoveDiagonally: bool = true
 @export var acceleration: float = 30
+@export var maxCoins: int = 2
 #@export var pushStrength: float = 500
 
 signal playerHasDied
+signal coin_collected(amount: int)
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var healthComponent : Health = $HealthComponent
@@ -38,6 +40,7 @@ func _ready() -> void:
 	healthComponent.health_changed.connect(healthChanged)
 	healthComponent.died.connect(onDeath)
 	healthComponent.died.connect(GameManager.handlePlayerDeath)
+	coin_collected.connect(GameManager.onPlayerCoinCollected)
 	
 func _physics_process(delta: float) -> void:
 	if healthComponent.bIsDead:
@@ -80,6 +83,9 @@ func healthChanged(current):
 func maxHealthChanged(current):
 	# Player animation and audio plays: max health increased
 	pass
+
+func collectCoin(amount: int) -> void:
+	coin_collected.emit(amount)
 
 func onDeath():
 	# Player animation and audio plays: death
