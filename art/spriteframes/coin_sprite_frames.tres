@@ -21,5 +21,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"spin",
-"speed": 5.0
+"speed": 2.0
 }]
