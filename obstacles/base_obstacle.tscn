@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cqd1oxhi35qbu"]
+
+[ext_resource type="Script" uid="uid://bme053h3jtge" path="res://obstacles/base_obstacle.gd" id="1_hp0y5"]
+[ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="1_hyrc4"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_l6ua4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_677mg"]
+atlas = ExtResource("1_hyrc4")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2c7u"]
+size = Vector2(16, 15)
+
+[node name="Obstacle" type="Node2D" unique_id=808527821]
+script = ExtResource("1_hp0y5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1913698530]
+texture = SubResource("AtlasTexture_677mg")
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=1646925777]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" unique_id=439727063]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_o2c7u")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1167949519]
+script = ExtResource("3_l6ua4")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
