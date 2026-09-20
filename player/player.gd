@@ -11,9 +11,11 @@ class_name Player
 signal playerHasDied
 signal coin_collected(amount: int)
 
-@onready var animatedSprite = $AnimatedSprite2D
+@onready var animatedSprite = $AnimationPlayer
 @onready var healthComponent : Health = $HealthComponent
 @onready var interactComponent = $InteractComponent
+
+var FaceDirection: GB_GLOBALS.FaceDirection = GB_GLOBALS.FaceDirection.down
 
 var can_move : bool = true:
 	set(new_move):
@@ -42,6 +44,7 @@ func _ready() -> void:
 	healthComponent.died.connect(GameManager.handlePlayerDeath)
 	coin_collected.connect(GameManager.onPlayerCoinCollected)
 	
+	
 func _physics_process(delta: float) -> void:
 	if healthComponent.bIsDead:
 		return
@@ -60,16 +63,29 @@ func movePlayer():
 	velocity = velocity.move_toward(input_direction * MaxSpeed, acceleration)
 	
 	# Play proper walking animation
-	if Input.is_action_pressed("left"):
-		animatedSprite.play("walk_left")
-	elif Input.is_action_pressed("right"):
+	if input_direction.x < -0.01:
 		animatedSprite.play("walk_right")
-	elif Input.is_action_pressed("up"):
+		$Sprite2D.flip_h = true
+		FaceDirection = GB_GLOBALS.FaceDirection.left
+	elif input_direction.x > 0.01:
+		animatedSprite.play("walk_right")
+		$Sprite2D.flip_h = false
+		FaceDirection = GB_GLOBALS.FaceDirection.right
+	elif input_direction.y < -0.01:
 		animatedSprite.play("walk_up")
-	elif Input.is_action_pressed("down"):
+		$Sprite2D.flip_h = false
+		FaceDirection = GB_GLOBALS.FaceDirection.up
+	elif input_direction.y > 0.01:
 		animatedSprite.play("walk_down")
+		$Sprite2D.flip_h = false
+		FaceDirection = GB_GLOBALS.FaceDirection.down
 	else:
-		animatedSprite.stop()
+		if FaceDirection == GB_GLOBALS.FaceDirection.left or FaceDirection == GB_GLOBALS.FaceDirection.right:
+			animatedSprite.play("idle_right")
+		elif FaceDirection == GB_GLOBALS.FaceDirection.down:
+			animatedSprite.play("idle_down")
+		elif FaceDirection == GB_GLOBALS.FaceDirection.up:
+			animatedSprite.play("idle_up")
 	
 	# Update the inteaction area's position
 	if input_direction != Vector2.ZERO:
