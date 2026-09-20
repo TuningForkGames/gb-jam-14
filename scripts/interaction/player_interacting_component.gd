@@ -4,7 +4,6 @@ extends Node2D
 @export var interactNudgeDistance: float = 16
 
 @onready var interact_label: Label = $InteractLabel
-@onready var player_inventory: PlayerInventory = $"../Inventory"
 
 var current_interactions := []
 var can_interact := true
@@ -13,14 +12,27 @@ func _ready() -> void:
 	%InteractArea.shape.size = interactAreaSize
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("a_btn") and can_interact:	
-		if current_interactions:
-			#if IType is throwable or equipable 
+	if event.is_action_pressed("a_btn") && event.is_action_pressed("b_btn"):
+		print("Both buttons pressed")
+	elif event.is_action_pressed("a_btn"):
+		if PlayerInventoryGlobal.IsSlotAFree():
+			_call_interaction(GB_GLOBALS.BtnInput.A)
+		else:
+			print("use A item")
+			#call item data sprite animation
+	elif event.is_action_pressed("b_btn"):
+		if PlayerInventoryGlobal.IsSlotBFree():
+			_call_interaction(GB_GLOBALS.BtnInput.B)
+		else:
+			print("use B item")
+
+func _call_interaction(input):
+	if current_interactions:
+		if can_interact:		
 			can_interact = false
 			interact_label.hide()
-			await current_interactions[0].interact.call()
-			
-			can_interact = true
+			await  current_interactions[0].interact.call(input)
+		can_interact = true
 
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:

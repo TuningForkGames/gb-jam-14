@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="1_djtih"]
 [ext_resource type="PackedScene" uid="uid://ccr2n1bk0mgft" path="res://core/door.tscn" id="2_rp2j6"]
 [ext_resource type="PackedScene" uid="uid://bos8j4dn2uyiu" path="res://items/sword.tscn" id="3_rp2j6"]
-[ext_resource type="Resource" uid="uid://dbouqbilh2e18" path="res://resources/sword.tres" id="4_dar1n"]
-[ext_resource type="PackedScene" uid="uid://cp8gk2s7aoeqv" path="res://items/bomb.tscn" id="6_r5uxk"]
+[ext_resource type="PackedScene" uid="uid://71t5u5xdxoyt" path="res://items/bomb.tscn" id="6_r5uxk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m1504"]
 

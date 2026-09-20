@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://oogyx8buy66l"]
+
+[ext_resource type="Script" uid="uid://bvevn4s5hy8xm" path="res://scripts/traps/arrow.gd" id="1_oixwk"]
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="2_vlmog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2dwb"]
+radius = 8.0
+
+[node name="Projectile" type="Area2D" unique_id=230294536]
+collision_layer = 64
+collision_mask = 254
+script = ExtResource("1_oixwk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303992059]
+shape = SubResource("CircleShape2D_t2dwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=233570590]
+texture = ExtResource("2_vlmog")
+hframes = 8
+vframes = 2
+frame = 10

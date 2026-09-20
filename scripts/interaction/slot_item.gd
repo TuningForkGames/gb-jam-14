@@ -16,5 +16,12 @@ func _process(delta: float) -> void:
 func HandleEquippedToSlot():
 	pass
 
-func _on_interact():
-	queue_free()
+func _on_interact(player_input):
+	if player_input == GB_GLOBALS.BtnInput.A:
+		PlayerInventoryGlobal.TryEquipSlotA(self)
+		queue_free()
+	elif player_input == GB_GLOBALS.BtnInput.B:
+		PlayerInventoryGlobal.TryEquipSlotB(self)
+		queue_free()
+	else:
+		print("Unhandled input triggered in slot_item _on_interact.")

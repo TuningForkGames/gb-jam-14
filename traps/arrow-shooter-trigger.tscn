@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://o2uoy8dfp3ws"]
+
+[ext_resource type="Script" uid="uid://bkwhffcf6xnb1" path="res://scripts/traps/arrow-shooter.gd" id="1_j1x0p"]
+[ext_resource type="PackedScene" uid="uid://oogyx8buy66l" path="res://traps/arrow.tscn" id="2_a7ui1"]
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="3_2q3hj"]
+
+[node name="Shooter" type="Node2D" unique_id=343774960]
+script = ExtResource("1_j1x0p")
+fire_interval = 4.0
+active = false
+mode = 1
+direction = 2
+projectile_to_spawn = ExtResource("2_a7ui1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1070562717]
+texture = ExtResource("3_2q3hj")
+hframes = 8
+vframes = 2
+frame = 3
+
+[node name="Timer" type="Timer" parent="." unique_id=1342381492]

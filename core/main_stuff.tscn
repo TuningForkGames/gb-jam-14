@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://jsuklws0fqmj"]
+[gd_scene format=3 uid="uid://buo674uoad3p4"]
 
 [ext_resource type="AudioStream" uid="uid://bt1l3pueceyf2" path="res://audio/AStrangeLand.wav" id="1_lxi2f"]
 [ext_resource type="Script" uid="uid://dy1gr7njqctev" path="res://scripts/camera/camera-transition.gd" id="2_r0yqt"]
@@ -16,6 +16,7 @@ position = Vector2(80, 72)
 script = ExtResource("2_r0yqt")
 
 [node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
+can_move = null
 
 [node name="RoomManager" type="Node" parent="." unique_id=1437557577 groups=["RoomManager"]]
 script = ExtResource("4_1u4v4")

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://bruuu5hel264m"
 DebugInput="*uid://bqbhu7snmpl2o"
+PlayerInventoryGlobal="*uid://dlxubf1136u7j"
 
 [display]
 

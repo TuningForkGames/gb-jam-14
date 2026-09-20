@@ -99,7 +99,7 @@ texture = ExtResource("2_aaqae")
 position = Vector2(131, 136)
 texture = ExtResource("5_pom5v")
 
-[node name="Label3" type="Label" parent="." unique_id=2082757221]
+[node name="CoinLabel" type="Label" parent="." unique_id=2082757221]
 offset_left = 138.0
 offset_top = 131.0
 offset_right = 156.0
