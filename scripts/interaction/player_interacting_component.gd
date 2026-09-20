@@ -45,10 +45,15 @@ func _handle_action_input(delta):
 				is_tracking = false
 				if !PlayerInventoryGlobal.IsSlotAFree():
 					print("throw A item")
-					_currAItem = PlayerInventoryGlobal.Slot_A.item_prefab.instantiate()
-					get_tree().root.add_child(_currAItem)
-					var _playerCurrPos:Vector2 = get_parent().global_position
-					_currAItem.global_position = Vector2(_playerCurrPos)
+					
+					if (PlayerInventoryGlobal.Slot_A.prefab_path != ""):
+						var packed_scene = load(PlayerInventoryGlobal.Slot_A.prefab_path) as PackedScene
+						if packed_scene:
+						
+							_currAItem = packed_scene.instantiate()
+							get_tree().root.add_child(_currAItem)
+							var _playerCurrPos:Vector2 = get_parent().global_position
+							_currAItem.global_position = Vector2(_playerCurrPos)
 		# A Tap Logic
 		elif Input.is_action_just_released("a_btn"):
 			if hold_timer <= hold_threshold:
