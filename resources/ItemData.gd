@@ -22,6 +22,8 @@ enum ItemType{
 @export var item_weight			: Weight = Weight.normal
 @export var quantity			: int
 @export var is_consumable 		: bool
+@export var is_reusable			: bool
+@export var has_been_thrown 	: bool = false
 @export_file("*.tscn") var prefab_path: String
 
 @export var player_use_anim_name: String

@@ -49,8 +49,10 @@ func _handleActionInput(delta):
 				if PlayerInventoryGlobal.IsSlotAFree():
 					_callInteraction(GB_GLOBALS.BtnInput.A)
 				else:
-					#for player directions
-						#Player.animation.play(animation based on item)
+					if PlayerInventoryGlobal.Slot_A.item_name == "sword":
+						get_parent().attack()
+					else:
+						_throwItem(PlayerInventoryGlobal.Slot_A.prefab_path, GB_GLOBALS.BtnInput.A)
 					print("use A item")
 		# B Hold Logic 
 		if Input.is_action_pressed("b_btn"):
@@ -70,8 +72,10 @@ func _handleActionInput(delta):
 				if PlayerInventoryGlobal.IsSlotBFree():
 					_callInteraction(GB_GLOBALS.BtnInput.B)
 				else:
-					#for player directions
-						#Player.animation.play(animation based on item)
+					if PlayerInventoryGlobal.Slot_B.item_name == "sword":
+						get_parent().attack()
+					else:
+						_throwItem(PlayerInventoryGlobal.Slot_B.prefab_path, GB_GLOBALS.BtnInput.B)
 					print("use B item")
 
 func _callInteraction(input):
@@ -93,14 +97,16 @@ func _throwItem(prefab_path, slot):
 	if (prefab_path != ""):
 		var packed_scene = load(prefab_path) as PackedScene
 		if packed_scene:
-			var _throwItem = packed_scene.instantiate() as RigidBody2D
-			#get_tree().root.add_child(_throwItem)
+			var _throwItem:SlotItem = packed_scene.instantiate() as SlotItem
 			get_tree().current_scene.add_child(_throwItem)
-			var _playerCurrPos:Vector2 = get_parent().global_position
-			_throwItem.global_position = Vector2(_playerCurrPos)
-			var _facingDirection = sign(scale.x) #????
+			var _playerCurrPos = get_parent().global_position
+			var _spawnPos = _playerCurrPos + (get_parent().getPlayerFaceVector() * 12.0)
+			_throwItem.global_position = Vector2(_spawnPos)
 			_throwItem.freeze = false
-			_throwItem.apply_central_impulse(Vector2(50,0))
+			print(_throwItem.linear_damp)
+			_throwItem.apply_central_impulse(get_parent().getPlayerFaceVector() * 200.0)
+			_throwItem.is_interactable = false
+			_throwItem.item_data.has_been_thrown = true
 
 func updateInteractDirection(facingDirection: Vector2) -> void:
 	# Avoid shifting if the player isn't moving/pressing a direction
