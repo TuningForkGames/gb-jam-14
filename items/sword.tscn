@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://bos8j4dn2uyiu"]
 
 [ext_resource type="Script" uid="uid://25y434g6xmad" path="res://scripts/interaction/slot_item.gd" id="1_d3ybf"]
+[ext_resource type="SpriteFrames" uid="uid://fewh7e4cyu2j" path="res://art/spriteframes/bomb.tres" id="2_3bpca"]
 [ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="2_d3ybf"]
 [ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="3_3m3he"]
+[ext_resource type="PackedScene" uid="uid://oogyx8buy66l" path="res://traps/arrow.tscn" id="3_5pcau"]
 
 [sub_resource type="Resource" id="Resource_d3ybf"]
 script = ExtResource("2_d3ybf")
-item_prefab = null
+item_prefab = ExtResource("3_5pcau")
+frames = ExtResource("2_3bpca")
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr6qr"]
