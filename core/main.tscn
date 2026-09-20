@@ -20,7 +20,7 @@ script = ExtResource("2_r0yqt")
 [node name="MainEnvironment" parent="." unique_id=1810971361 instance=ExtResource("4_kagtj")]
 
 [node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
-position = Vector2(34, 49)
+position = Vector2(32, 32)
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=2052046908]
 layer = 10

@@ -163,6 +163,7 @@ texture = ExtResource("1_ertcv")
 2:9/0 = 0
 3:9/0 = 0
 4:9/0 = 0
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 1

@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://dlxubf1136u7j" path="res://scripts/interaction/player_inventory_global.gd" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emjmr"]
-radius = 3.0
-height = 12.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb6sy"]
 radius = 3.0
@@ -152,6 +152,7 @@ collision_mask = 39
 script = ExtResource("1_3eadt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880719749]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_emjmr")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=289323815]
@@ -175,6 +176,7 @@ script = ExtResource("6_g6k8r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=677465983]
 libraries/ = SubResource("AnimationLibrary_g6k8r")
+autoplay = &"idle_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1674831386]
 texture = ExtResource("6_boad6")
