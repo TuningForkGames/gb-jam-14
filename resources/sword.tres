@@ -20,6 +20,8 @@ animations = [{
 
 [resource]
 script = ExtResource("1_kr6k7")
+item_name = "Sword"
+prefab_path = "uid://bos8j4dn2uyiu"
 frames = SubResource("SpriteFrames_cr6qr")
 effect = 2
 metadata/_custom_type_script = "uid://ce07ksuunku8f"
