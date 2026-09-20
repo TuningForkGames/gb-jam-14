@@ -87,6 +87,7 @@ func movePlayer():
 		elif FaceDirection == GB_GLOBALS.FaceDirection.up:
 			animatedSprite.play("idle_up")
 	
+	#print(getPlayerFaceVector())
 	# Update the inteaction area's position
 	if input_direction != Vector2.ZERO:
 		interactComponent.updateInteractDirection(input_direction)
@@ -117,3 +118,15 @@ func onRespawn():
 func onEnemyEntered(body):
 	print("An enemy entered your hitbox")
 	healthComponent.take_damage(1)
+	
+func getPlayerFaceVector() -> Vector2:
+	if FaceDirection == GB_GLOBALS.FaceDirection.left:
+		return Vector2(-1.0, 0.0)
+	elif FaceDirection == GB_GLOBALS.FaceDirection.right:
+		return Vector2(1.0, 0.0)
+	elif FaceDirection == GB_GLOBALS.FaceDirection.down:
+		return Vector2(0.0, 1.0)
+	elif FaceDirection == GB_GLOBALS.FaceDirection.up:
+		return Vector2(0.0, -1.0)
+			
+	return Vector2(0.0, 0.0)
