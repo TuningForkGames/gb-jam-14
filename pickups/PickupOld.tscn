@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://djc62om3bfkmk"]
+[gd_scene format=3 uid="uid://cfkapphgtr1tb"]
 
 [ext_resource type="Script" uid="uid://drjm0whiu5omh" path="res://scripts/systems/pickupOld.gd" id="1_3w82q"]
 [ext_resource type="SpriteFrames" uid="uid://iefr3etrs64w" path="res://art/spriteframes/coin_sprite_frames.tres" id="2_401ch"]

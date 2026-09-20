@@ -92,6 +92,7 @@ position = Vector2(16, 72)
 
 [node name="SlotItem" parent="." unique_id=1584292611 instance=ExtResource("3_rp2j6")]
 position = Vector2(69, 68)
+item_data = ExtResource("4_dar1n")
 interact_name = null
 is_interactable = null
 
