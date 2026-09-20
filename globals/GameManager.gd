@@ -5,7 +5,7 @@ extends Node
 # Initialize as -1 to indicate "No saved data yet"
 var savedHP: int = -1
 var savedMaxHP: int = -1
-var playerCoins: int = -1
+var playerCoins: int = 0
 
 
 # --- DATA MANIPULATION ---
@@ -13,6 +13,11 @@ func saveHealth(newHP: int, newMaxHP: int) -> void:
 	savedHP = newHP
 	savedMaxHP = newMaxHP 
 	print("Health saved. HP: ", newHP, " - Max HP: ", newMaxHP)
+	
+func onPlayerCoinCollected(amount: int) -> void:
+	playerCoins += amount
+	print("GameManager: Saved ", amount, " coin(s).")
+	print("Total Coins: ", playerCoins)
 
 
 # --- SCENE / GAME FLOW MANAGEMENT ---
