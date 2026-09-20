@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxu5v1gr2r3jy"]
+
+[ext_resource type="Script" uid="uid://dt4en3ql7wsw3" path="res://scripts/traps/pressure-plate.gd" id="1_xh7so"]
+[ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="2_ulcx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2dwb"]
+size = Vector2(16, 16)
+
+[node name="presure-plate" type="Area2D" unique_id=1645827739]
+collision_mask = 32
+script = ExtResource("1_xh7so")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1711031288]
+shape = SubResource("RectangleShape2D_t2dwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576233667]
+texture = ExtResource("2_ulcx3")
+hframes = 6
+vframes = 12
+frame = 11
