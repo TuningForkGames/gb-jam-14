@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bt1l3pueceyf2" path="res://audio/AStrangeLand.wav" id="1_lxi2f"]
 [ext_resource type="Script" uid="uid://dy1gr7njqctev" path="res://scripts/camera/camera-transition.gd" id="2_r0yqt"]
 [ext_resource type="PackedScene" uid="uid://dn7nn18x04jpx" path="res://player/player.tscn" id="3_ue3ht"]
-[ext_resource type="PackedScene" uid="uid://csgmbtq3lodxs" path="res://levels/World1_1.tscn" id="4_kagtj"]
+[ext_resource type="Script" uid="uid://bopoythef6gqc" path="res://scripts/systems/room-manager.gd" id="4_1u4v4"]
 [ext_resource type="PackedScene" uid="uid://c20jd2ex40ygt" path="res://ui/HUD.tscn" id="5_xa854"]
 
 [node name="main" type="Node" unique_id=728287180]
@@ -12,15 +12,20 @@ script = ExtResource("1_kagtj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=605488031]
 stream = ExtResource("1_lxi2f")
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=486854286]
 position = Vector2(80, 72)
 script = ExtResource("2_r0yqt")
 
-[node name="MainEnvironment" parent="." unique_id=1810971361 instance=ExtResource("4_kagtj")]
+[node name="RoomManager" type="Node" parent="." unique_id=1437557577 groups=["RoomManager"]]
+script = ExtResource("4_1u4v4")
+start_room_path = null
 
 [node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
 position = Vector2(34, 49)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1287416532]
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=2052046908]
 layer = 10
