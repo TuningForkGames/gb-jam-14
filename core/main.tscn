@@ -22,8 +22,6 @@ script = ExtResource("2_r0yqt")
 [node name="Player" parent="." unique_id=1164926984 instance=ExtResource("3_ue3ht")]
 position = Vector2(34, 49)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1287416532]
-
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=2052046908]
 layer = 10
 
