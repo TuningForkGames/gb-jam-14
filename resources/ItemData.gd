@@ -14,14 +14,21 @@ enum Weight{
 	heavy
 }
 
+enum ItemType{
+	
+}
+
 @export var item_name			: String
-@export var frames				: SpriteFrames	# For non staic thigns like the coin.
-@export var animation_name		: String		# name of animation to play if exist
-@export var effect				: Effect		# enum can add for more as needed
-@export var value				: int			# value to change anything by
-@export var pickup_sfx			: AudioStream	# in case jake wants to add more sounds haha
-@export var player_use_anim_name: String
+@export var item_weight			: Weight = Weight.normal
 @export var quantity			: int
 @export var is_consumable 		: bool
-@export var item_weight			: Weight = Weight.normal
-@export var item_script			: GDScript
+
+@export var item_prefab			: PackedScene
+@export var player_use_anim_name: String
+
+#unsure if needed
+@export var frames				: SpriteFrames
+@export var animation_name		: String
+@export var effect				: Effect
+@export var value				: int
+@export var pickup_sfx			: AudioStream

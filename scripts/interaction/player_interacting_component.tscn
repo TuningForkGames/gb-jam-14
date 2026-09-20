@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/interaction/player_interacting_component.gd" id="1_6sdoe"]
 [ext_resource type="Texture2D" uid="uid://b74c37adf7cmx" path="res://art/ui/16bit/Abuttons16X16.png" id="2_emjmr"]
+[ext_resource type="FontFile" uid="uid://bsadhxumf4hg" path="res://ui/fonts/MinecraftRegular-Bmg3.otf" id="2_kly7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxhi2"]
 size = Vector2(10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wc3wh"]
+font = ExtResource("2_kly7h")
+font_size = 10
 font_color = Color(0.26666668, 0.52156866, 0.1882353, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wc3wh"]
