@@ -5,6 +5,7 @@ class_name Player
 @export var MaxSpeed: float = 100.0
 @export var canMoveDiagonally: bool = true
 @export var acceleration: float = 30
+@export var maxCoins: int = 2
 #@export var pushStrength: float = 500
 
 signal playerHasDied

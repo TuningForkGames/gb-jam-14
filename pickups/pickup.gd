@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	apply_effect(body)
-	play_gather_animation()
 
 func apply_effect(player: Node2D) -> void:
 	# Override this function at the child scene level to customize based on pickup type.
@@ -19,4 +18,4 @@ func apply_effect(player: Node2D) -> void:
 func play_gather_animation() -> void:
 	# Override this function at the child scene level to customize based on pickup type.
 	# Standard functionlity is that the item will just disappear.
-	queue_free() 
+	queue_free()

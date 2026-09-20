@@ -7,6 +7,7 @@ var savedHP: int = -1
 var savedMaxHP: int = -1
 var playerCoins: int = 0
 
+signal coinCountUpdated(new_total: int)
 
 # --- DATA MANIPULATION ---
 func saveHealth(newHP: int, newMaxHP: int) -> void:
@@ -18,7 +19,7 @@ func onPlayerCoinCollected(amount: int) -> void:
 	playerCoins += amount
 	print("GameManager: Saved ", amount, " coin(s).")
 	print("Total Coins: ", playerCoins)
-
+	coinCountUpdated.emit(playerCoins)
 
 # --- SCENE / GAME FLOW MANAGEMENT ---
 func handlePlayerDeath() -> void:
