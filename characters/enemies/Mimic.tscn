@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b5s6kutkggvjv" path="res://art/characters/enemies/Mimic1.png" id="1_1adx2"]
 [ext_resource type="Script" uid="uid://d0nv3a8nja5wu" path="res://characters/enemies/mimic.gd" id="1_6mnsi"]
 [ext_resource type="Texture2D" uid="uid://fj4f40rjeht7" path="res://art/sprites/shadow.png" id="2_ctvq6"]
+[ext_resource type="PackedScene" uid="uid://b63wyqqrykued" path="res://pickups/coin.tscn" id="2_md5v5"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="4_es24t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctvq6"]
 atlas = ExtResource("1_1adx2")
@@ -313,6 +315,7 @@ motion_mode = 1
 script = ExtResource("1_6mnsi")
 jump_distance = 24.0
 aggro_range = 64.0
+coin_prefab = ExtResource("2_md5v5")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=496279929]
 visible = false
@@ -332,4 +335,11 @@ shape = SubResource("CircleShape2D_cr6qr")
 wait_time = 0.5
 one_shot = true
 
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1794667553]
+script = ExtResource("4_es24t")
+startingHP = 3
+invuln_time = 0.2
+
 [connection signal="timeout" from="HopCooldownTimer" to="." method="_on_hop_cooldown_timer_timeout"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
