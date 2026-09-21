@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjtretx7bd1dc" path="res://items/flip_switch.tscn" id="2_o2c7u"]
 [ext_resource type="PackedScene" uid="uid://cqd1oxhi35qbu" path="res://obstacles/base_obstacle.tscn" id="3_70qs0"]
 [ext_resource type="PackedScene" uid="uid://b825dtmd0efex" path="res://characters/enemies/Mimic.tscn" id="3_enlhk"]
+[ext_resource type="PackedScene" uid="uid://bqmvakja5k1sm" path="res://pickups/MimicHeart.tscn" id="6_iwxjl"]
 
 [node name="Node2D" type="Node2D" unique_id=1810971361]
 
@@ -46,6 +47,8 @@ position = Vector2(264, 72)
 
 [node name="Mimic2" parent="OverworldObjects" unique_id=1562697547 instance=ExtResource("3_enlhk")]
 position = Vector2(72, -344)
+coin_prefab = ExtResource("6_iwxjl")
 
 [node name="Mimic3" parent="OverworldObjects" unique_id=2027737772 instance=ExtResource("3_enlhk")]
 position = Vector2(240, -192)
+coin_prefab = ExtResource("6_iwxjl")
