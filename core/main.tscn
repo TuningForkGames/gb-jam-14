@@ -12,6 +12,7 @@ script = ExtResource("1_kagtj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=605488031]
 stream = ExtResource("2_kagtj")
+volume_db = -17.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=486854286]

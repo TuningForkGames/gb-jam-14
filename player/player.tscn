@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://drdq7us0q3fjh" path="res://scripts/interaction/player_interacting_component.tscn" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dgd5v15gx0c1d" path="res://art/characters/player/SS_MainCharacter.png" id="6_boad6"]
 [ext_resource type="Script" uid="uid://dlxubf1136u7j" path="res://scripts/interaction/player_inventory_global.gd" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://cm8v8exwaarw5" path="res://audio/death.wav" id="6_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emjmr"]
 radius = 7.0
@@ -643,6 +644,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1378196354]
 shape = SubResource("RectangleShape2D_su6a7")
 debug_color = Color(0.62310517, 0.35244063, 1, 0.41960785)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1678090844]
+stream = ExtResource("6_rgyib")
 
 [connection signal="body_entered" from="HitBoxArea2D" to="." method="onEnemyEntered"]
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]
