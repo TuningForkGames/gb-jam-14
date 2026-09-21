@@ -53,7 +53,6 @@ func inflictExplosionDamamge():
 			for item in found:
 				item.take_damage(1)
 
-
 func _on_interact(player_input):
 	if player_input == GB_GLOBALS.BtnInput.A:
 		PlayerInventoryGlobal.TryEquipSlotA(self)

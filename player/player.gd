@@ -119,6 +119,8 @@ func onDeath():
 	# Alert GameManager of Player Death
 	playerHasDied.emit()
 	print("Player is DEAD")
+	PlayerInventoryGlobal.Slot_A = null
+	PlayerInventoryGlobal.Slot_B = null
 
 
 func onRespawn():

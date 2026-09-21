@@ -3,12 +3,16 @@
 [ext_resource type="Script" uid="uid://25y434g6xmad" path="res://scripts/interaction/slot_item.gd" id="1_d3ybf"]
 [ext_resource type="Resource" uid="uid://dbouqbilh2e18" path="res://resources/sword.tres" id="2_d3ybf"]
 [ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="3_3m3he"]
+[ext_resource type="Script" uid="uid://bemfnlc275hbw" path="res://items/sword_hitbox.gd" id="4_3bpca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr6qr"]
 atlas = ExtResource("3_3m3he")
 region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr6qr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc3wh"]
+size = Vector2(10.622411, 23.60045)
 
 [node name="Sword" type="RigidBody2D" unique_id=285770295]
 collision_layer = 2
@@ -25,3 +29,12 @@ texture = SubResource("AtlasTexture_cr6qr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222832943]
 shape = SubResource("CircleShape2D_cr6qr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1489711419]
+script = ExtResource("4_3bpca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1073729645]
+rotation = 0.75398225
+shape = SubResource("RectangleShape2D_wc3wh")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
