@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://cu5fe0fg1xn8" path="res://art/map/gb_tileset1.tres" id="1_15pdu"]
 [ext_resource type="PackedScene" uid="uid://bos8j4dn2uyiu" path="res://items/sword.tscn" id="2_70qs0"]
 [ext_resource type="PackedScene" uid="uid://cqd1oxhi35qbu" path="res://obstacles/base_obstacle.tscn" id="3_70qs0"]
+[ext_resource type="PackedScene" uid="uid://dmfx7ousa2pwt" path="res://traps/spike_trap.tscn" id="4_o2c7u"]
+[ext_resource type="PackedScene" uid="uid://b825dtmd0efex" path="res://characters/enemies/Mimic.tscn" id="5_enlhk"]
 
 [node name="Node2D" type="Node2D" unique_id=1810971361]
 
@@ -35,3 +37,9 @@ position = Vector2(80, 24)
 
 [node name="Cabbage2" parent="OverworldObjects/Cabbages" unique_id=1910304864 instance=ExtResource("3_70qs0")]
 position = Vector2(96, 24)
+
+[node name="spike-trap" parent="." unique_id=1812067368 instance=ExtResource("4_o2c7u")]
+position = Vector2(120, 56)
+
+[node name="CharacterBody2D" parent="." unique_id=379363098 instance=ExtResource("5_enlhk")]
+position = Vector2(118, 53)
