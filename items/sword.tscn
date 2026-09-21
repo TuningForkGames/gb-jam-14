@@ -14,12 +14,10 @@ region = Rect2(80, 16, 16, 16)
 collision_layer = 2
 collision_mask = 0
 input_pickable = true
-linear_damp = 0.1
+linear_damp = 3.0
 angular_damp = 1.0
 script = ExtResource("1_d3ybf")
 item_data = ExtResource("2_d3ybf")
-interact_name = null
-is_interactable = null
 metadata/_custom_type_script = "uid://25y434g6xmad"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=82312368]

@@ -21,13 +21,12 @@ var can_move : bool = true:
 	set(new_move):
 		if not new_move:
 			velocity = Vector2.ZERO
-			if animatedSprite:
-				animatedSprite.stop()
 			
 		can_move = new_move
 
 func _ready() -> void:
 	add_to_group("Player")
+	animatedSprite.animation_finished.connect(handleAnimationFinished)
 	
 	# Check if the global vault actually has active mid-game data
 	if GameManager.savedHP != -1:
@@ -44,6 +43,9 @@ func _ready() -> void:
 	healthComponent.died.connect(GameManager.handlePlayerDeath)
 	coin_collected.connect(GameManager.onPlayerCoinCollected)
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug03"):
+		attack()
 	
 func _physics_process(delta: float) -> void:
 	if healthComponent.bIsDead:
@@ -64,24 +66,22 @@ func movePlayer():
 	
 	# Play proper walking animation
 	if input_direction.x < -0.01:
-		animatedSprite.play("walk_right")
-		$Sprite2D.flip_h = true
+		animatedSprite.play("walk_left")
 		FaceDirection = GB_GLOBALS.FaceDirection.left
 	elif input_direction.x > 0.01:
 		animatedSprite.play("walk_right")
-		$Sprite2D.flip_h = false
 		FaceDirection = GB_GLOBALS.FaceDirection.right
 	elif input_direction.y < -0.01:
 		animatedSprite.play("walk_up")
-		$Sprite2D.flip_h = false
 		FaceDirection = GB_GLOBALS.FaceDirection.up
 	elif input_direction.y > 0.01:
 		animatedSprite.play("walk_down")
-		$Sprite2D.flip_h = false
 		FaceDirection = GB_GLOBALS.FaceDirection.down
 	else:
-		if FaceDirection == GB_GLOBALS.FaceDirection.left or FaceDirection == GB_GLOBALS.FaceDirection.right:
+		if FaceDirection == GB_GLOBALS.FaceDirection.right: 
 			animatedSprite.play("idle_right")
+		elif FaceDirection == GB_GLOBALS.FaceDirection.left:
+			animatedSprite.play("idle_left")
 		elif FaceDirection == GB_GLOBALS.FaceDirection.down:
 			animatedSprite.play("idle_down")
 		elif FaceDirection == GB_GLOBALS.FaceDirection.up:
@@ -91,7 +91,17 @@ func movePlayer():
 	# Update the inteaction area's position
 	if input_direction != Vector2.ZERO:
 		interactComponent.updateInteractDirection(input_direction)
-	
+
+func attack():
+	can_move = false
+	if FaceDirection == GB_GLOBALS.FaceDirection.right: 
+		animatedSprite.play("sword_attack_right")
+	elif FaceDirection == GB_GLOBALS.FaceDirection.left:
+		animatedSprite.play("sword_attack_left")
+	elif FaceDirection == GB_GLOBALS.FaceDirection.down:
+		animatedSprite.play("sword_attack_down")
+	elif FaceDirection == GB_GLOBALS.FaceDirection.up:
+		animatedSprite.play("sword_attack_up")
 
 func healthChanged(current):
 	# Player animation and audio plays: heal
@@ -130,3 +140,12 @@ func getPlayerFaceVector() -> Vector2:
 		return Vector2(0.0, -1.0)
 			
 	return Vector2(0.0, 0.0)
+	
+func handleAnimationFinished(anim_name: String) -> void:
+	can_move = true
+
+
+func _on_attack_hitbox_body_entered(body: Node2D) -> void:
+	var healthcomp = body.get_node("HealthComponent") as Health
+	if healthcomp != null:
+		healthcomp.take_damage(1)
