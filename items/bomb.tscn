@@ -7,7 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnnoo"]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb6sy"]
+radius = 39.0
+
 [node name="Bomb" type="RigidBody2D" unique_id=2006356975]
+collision_layer = 2
 script = ExtResource("1_lnnoo")
 item_data = ExtResource("2_tqfld")
 metadata/_custom_type_script = "uid://25y434g6xmad"
@@ -20,3 +24,9 @@ shape = SubResource("CircleShape2D_lnnoo")
 sprite_frames = ExtResource("4_6uah4")
 animation = &"holding"
 frame_progress = 0.44445455
+
+[node name="DamageRange" type="Area2D" parent="." unique_id=1193354633]
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageRange" unique_id=1500115518]
+shape = SubResource("CircleShape2D_sb6sy")
