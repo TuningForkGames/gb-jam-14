@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://djwooes26bbkw"]
+
+[ext_resource type="Script" uid="uid://ce07ksuunku8f" path="res://resources/ItemData.gd" id="1_08hjm"]
+[ext_resource type="SpriteFrames" uid="uid://fewh7e4cyu2j" path="res://art/spriteframes/bomb.tres" id="1_f7nem"]
+
+[resource]
+script = ExtResource("1_08hjm")
+item_name = "bomb"
+prefab_path = "uid://cp8gk2s7aoeqv"
+frames = ExtResource("1_f7nem")
+metadata/_custom_type_script = "uid://ce07ksuunku8f"

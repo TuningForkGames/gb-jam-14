@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://desmsnf6gl46j" path="res://art/objects/bombanimation-sheet.png" id="1_4il5s"]
 [ext_resource type="Texture2D" uid="uid://byuuhvi45w0mo" path="res://art/objects/bombanimation23frames.png" id="2_rewdg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqfld"]
+atlas = ExtResource("2_rewdg")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uah4"]
 atlas = ExtResource("1_4il5s")
 region = Rect2(0, 0, 16, 16)
@@ -87,16 +91,20 @@ region = Rect2(320, 0, 16, 16)
 atlas = ExtResource("1_4il5s")
 region = Rect2(336, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqfld"]
-atlas = ExtResource("2_rewdg")
-region = Rect2(16, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw46u"]
 atlas = ExtResource("2_rewdg")
 region = Rect2(0, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqfld")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6uah4")
@@ -161,16 +169,8 @@ animations = [{
 "duration": 0.9,
 "texture": SubResource("AtlasTexture_7c7nw")
 }],
-"loop": 1,
-"name": &"blow",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tqfld")
-}],
-"loop": 1,
-"name": &"default",
+"loop": 0,
+"name": &"dispose",
 "speed": 5.0
 }, {
 "frames": [{
