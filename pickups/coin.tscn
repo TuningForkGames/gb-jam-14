@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xg6iakdlii3" path="res://pickups/pickup.tscn" id="1_72qll"]
 [ext_resource type="Script" uid="uid://dudg3npaepxyb" path="res://pickups/coin.gd" id="2_4qu25"]
 [ext_resource type="SpriteFrames" uid="uid://iefr3etrs64w" path="res://art/spriteframes/coin_sprite_frames.tres" id="3_4qu25"]
+[ext_resource type="AudioStream" uid="uid://b2c08eusaplfn" path="res://audio/coin.wav" id="4_2w8ax"]
 
 [node name="Pickup" unique_id=657009517 instance=ExtResource("1_72qll")]
 script = ExtResource("2_4qu25")
@@ -13,3 +14,8 @@ itemName = "Coin"
 sprite_frames = ExtResource("3_4qu25")
 animation = &"spin"
 autoplay = "spin"
+frame_progress = 0.49433315
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." index="3" unique_id=1552567676]
+stream = ExtResource("4_2w8ax")
+playback_type = 1
