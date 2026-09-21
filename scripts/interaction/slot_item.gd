@@ -46,11 +46,11 @@ func HandleEquippedToSlot():
 func inflictExplosionDamamge():
 	var bodies = $DamageRange.get_overlapping_bodies()
 	for body in bodies:
-		print(body.name)
+		print("Body = ", body.name)
 		var found : Array[Node] = body.find_children("*", "Health", true, false)
-		print(found)
 		if not found.is_empty():
 			for item in found:
+				print("item.name = ", item.name)
 				item.take_damage(1)
 
 

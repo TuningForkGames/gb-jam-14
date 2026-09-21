@@ -4,11 +4,19 @@ extends Node2D
 @export var bDesotryed : bool				= false
 @export var linkedDestory : Node2D
 
-func _ready() -> void:
-	if bDesotryed:
-		destory()
+@onready var health : Health 				= $Health
 
-func destory():
+func _ready() -> void:
+	print("Wall loaded")
+	if bDesotryed:
+		_destory()
+	health.died.connect(_destory)
+	health.health_changed.connect(_test)
+	
+func _destory() -> void:
 	if linkedDestory:
 		linkedDestory.queue_free()
 	queue_free()
+
+func _test(hp : int) -> void:
+	print("It's takign damage new hp = ", hp)

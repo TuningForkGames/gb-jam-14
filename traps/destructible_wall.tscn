@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cw11fa53xl8ut" path="res://scripts/traps/destructible-entities.gd" id="1_ivvi4"]
 [ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="1_m0rka"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_4slju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
 size = Vector2(16, 16)
 
-[node name="Destructible-Wall" type="Node2D" unique_id=1453655248]
+[node name="Destructible-Wall" type="StaticBody2D" unique_id=1057914650]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_ivvi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12444183]
+shape = SubResource("RectangleShape2D_s1fef")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=996965326]
 texture = ExtResource("1_m0rka")
@@ -15,7 +21,8 @@ hframes = 6
 vframes = 12
 frame = 40
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=891816189]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=12444183]
-shape = SubResource("RectangleShape2D_s1fef")
+[node name="Health" type="Node" parent="." unique_id=1119531475]
+script = ExtResource("3_4slju")
+max_hp = 1
+invuln_time = 0.1
+metadata/_custom_type_script = "uid://dur3hhg3ueodg"
