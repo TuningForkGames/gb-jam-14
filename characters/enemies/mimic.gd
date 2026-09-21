@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var hop_speed: float = 0.8
 @export var aggro_range: float = 32.0
 @export var min_attack_range = 16.0
+@export var coin_prefab: PackedScene
 
 var _is_hopping = false
 var _player: CharacterBody2D
@@ -70,7 +71,7 @@ func hop_to_player() -> void:
 		velocity = calculate_arc_velocity(global_position, _hop_target, Vector2(get_gravity().length(), get_gravity().length()), hop_speed)
 		_is_hopping = true
 		#$Shadow.global_position = global_position + (_hop_target - global_position).normalized() * 4
-		$Shadow.visible = true
+		#$Shadow.visible = true
 		
 		var face_dir: GB_GLOBALS.FaceDirection = get_player_face_direction()
 		if  face_dir == GB_GLOBALS.FaceDirection.down:
@@ -117,3 +118,21 @@ func _on_animation_finished() -> void:
 
 func _on_hop_cooldown_timer_timeout() -> void:
 	hop_to_player()
+
+
+func _on_health_component_died() -> void:
+	if (coin_prefab != null): 
+		var coin = coin_prefab.instantiate()
+		get_tree().root.add_child(coin)
+		coin.global_position = global_position
+	queue_free()
+
+
+func _on_health_component_health_changed(curr_hp: Variant) -> void:
+	#modulate = Color("f9ffb365")
+	$AnimatedSprite2D.visible = false
+	get_tree().create_timer($HealthComponent.invuln_time).timeout.connect(_reset_color)
+
+func _reset_color() -> void:
+	$AnimatedSprite2D.visible = true
+	#modulate = Color.WHITE
