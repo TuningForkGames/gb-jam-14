@@ -13,26 +13,46 @@ func _ready() -> void:
 	get_tree().create_timer(0.5).timeout.connect(_thrownItemReady)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if itemReadyToBeInteracted:
 		_reEnableInteraction()
 
 func _reEnableInteraction():
-	if self.linear_velocity.is_zero_approx():
-		if item_data.is_reusable:
-			if self.is_interactable == false:
-				self.is_interactable = true
-		else:
-			if item_data.has_been_thrown == true:
-				animPlayer.play("dispose")
-				await animPlayer.animation_finished
-				queue_free()
+	# If, for some reason this runs while the item is still moving, do nothing.
+	if not self.linear_velocity.is_zero_approx():
+		return
+	
+	itemReadyToBeInteracted = false
+	
+	if item_data.is_reusable:
+		self.is_interactable = true
+		return
+	
+	# Handle Single-Use Thrown Items (like Bombs, but could be extended to other stuff)
+	if item_data.has_been_thrown == true:
+		animPlayer.play("dispose")
+		await animPlayer.animation_finished
+		if item_data.item_name == "bomb":
+			await get_tree().physics_frame
+			inflictExplosionDamamge()
+		queue_free()
 
 func _thrownItemReady():
 	itemReadyToBeInteracted = true
 
 func HandleEquippedToSlot():
 	pass
+
+func inflictExplosionDamamge():
+	var bodies = $DamageRange.get_overlapping_bodies()
+	for body in bodies:
+		print(body.name)
+		var found : Array[Node] = body.find_children("*", "Health", true, false)
+		print(found)
+		if not found.is_empty():
+			for item in found:
+				item.take_damage(1)
+
 
 func _on_interact(player_input):
 	if player_input == GB_GLOBALS.BtnInput.A:
