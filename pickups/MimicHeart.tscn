@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bqmvakja5k1sm"]
+
+[ext_resource type="PackedScene" uid="uid://b63wyqqrykued" path="res://pickups/coin.tscn" id="1_mqind"]
+[ext_resource type="Texture2D" uid="uid://c4gqku4nctf1b" path="res://ui/Heart_8px.png" id="2_imft8"]
+[ext_resource type="Texture2D" uid="uid://bdsxmmjfkq2a0" path="res://ui/Heart_16px.png" id="3_3ev27"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmgdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imft8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3ev27")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Pickup" unique_id=657009517 instance=ExtResource("1_mqind")]
+CoinValue = 3
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1365809836]
+sprite_frames = SubResource("SpriteFrames_xmgdp")
+animation = &"default"
+autoplay = ""
+frame_progress = 0.8113019
