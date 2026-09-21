@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bo4g2bhsxwnni"]
+
+[ext_resource type="Texture2D" uid="uid://dpu8kgxsdtoax" path="res://art/map/gb-jam-tileset1.png" id="1_e7nm6"]
+[ext_resource type="Script" uid="uid://cw11fa53xl8ut" path="res://scripts/traps/destructible-entities.gd" id="2_wngsr"]
+[ext_resource type="Script" uid="uid://dur3hhg3ueodg" path="res://scripts/systems/health.gd" id="3_wtx0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wngsr"]
+size = Vector2(16, 16)
+
+[node name="Destructible-Wall-Right" type="StaticBody2D" unique_id=121545696]
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("2_wngsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1430846922]
+shape = SubResource("RectangleShape2D_wngsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=996965326]
+texture = ExtResource("1_e7nm6")
+hframes = 6
+vframes = 12
+frame = 42
+
+[node name="Health" type="Node" parent="." unique_id=1183724953]
+script = ExtResource("3_wtx0x")
+max_hp = 1
+invuln_time = 0.0
+metadata/_custom_type_script = "uid://dur3hhg3ueodg"
