@@ -5,7 +5,7 @@ class_name Player
 @export var MaxSpeed: float = 100.0
 @export var canMoveDiagonally: bool = true
 @export var acceleration: float = 30
-@export var maxCoins: int = 2
+@export var maxCoins: int = 99
 #@export var pushStrength: float = 500
 
 signal playerHasDied
@@ -119,6 +119,9 @@ func onDeath():
 	# Alert GameManager of Player Death
 	playerHasDied.emit()
 	print("Player is DEAD")
+	PlayerInventoryGlobal.Slot_A = null
+	PlayerInventoryGlobal.Slot_B = null
+	$AudioStreamPlayer2D.play()
 
 
 func onRespawn():
