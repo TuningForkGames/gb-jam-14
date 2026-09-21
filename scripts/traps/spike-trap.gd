@@ -21,7 +21,8 @@ enum FIREMODE{
 @export var damage : int				= 1
 @export var active : bool				= true
 @export var mode  : FIREMODE			= FIREMODE.CYCLING
-# where the arrow spawns
+
+var bIsDeadly : bool					= false
 
 func _ready() -> void:
 	if not hurtbox:
@@ -36,57 +37,47 @@ func _ready() -> void:
 	if not raisedTimer:
 		push_error("You need to setup raisedTimer.")
 		return
-	area2D.body_entered.connect(_damage_player)
+	area2D.body_entered.connect(_on_body_entered)
+	if mode == FIREMODE.TRIGGERED:
+		area2D.body_exited.connect(_on_body_exited)
+		
 	timer.timeout.connect(_raise)
 	timer.wait_time = trigger_interval
 	raisedTimer.timeout.connect(_lower)
 	raisedTimer.wait_time = raised_time
 	raisedTimer.one_shot = true
-	_lower()
 	if mode == FIREMODE.CYCLING and active:
 		timer.start()
 		
-
-func _cycle() -> void:
-	if not active:
-		timer.stop()
-		return
-	
-	_raise()
-
-func set_active(bOn : bool) -> void:
-	if bOn:
-		active = true
-	if not bOn:
-		active = false
-		
-	match mode:
-		FIREMODE.CYCLING:
-			if bOn:
-				timer.start()
-			else:
-				timer.stop()
-		FIREMODE.TRIGGERED:
-			if bOn:
-				_raise()
 		
 func _raise() -> void:
 	if not active: return
-	hurtbox.set_deferred("disabled", false)
-	raisedSprite.visible = true
-	loweredSprite.visible = false
-	raisedTimer.start()
+	bIsDeadly = true
+	for b in area2D.get_overlapping_bodies():   # ← catches the stationary player
+		_hurt(b)
+	_flip_image()
+	if mode != FIREMODE.TRIGGERED:
+		raisedTimer.start()
 
 func _lower() -> void:
-	hurtbox.set_deferred("disabled", true)
-	raisedSprite.visible = false
-	loweredSprite.visible = true
+	bIsDeadly = false
+	_flip_image()
 
-func _damage_player(body : Node2D):
-	print(body, " entered")
-	if body.is_in_group("Player"):
-		body.healthComponent.take_damage(damage)
-	
+func _on_body_entered(body : Node2D):
+	if mode == FIREMODE.TRIGGERED:
+		_raise()
+	elif bIsDeadly:
+		_hurt(body)
+		
+func _on_body_exited(body : Node2D):
+	if mode == FIREMODE.TRIGGERED:
+		_lower()
+		
+func _hurt(body : Node2D):
+	var found := body.find_children("*", "Health", true, false)
+	if not found.is_empty():
+		found[0].take_damage(damage)
+		
 func _flip_image():
 	if loweredSprite.is_visible_in_tree():
 		loweredSprite.visible = false

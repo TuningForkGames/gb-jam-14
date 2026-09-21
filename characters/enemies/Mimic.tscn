@@ -323,6 +323,7 @@ position = Vector2(0, 9)
 texture = ExtResource("2_ctvq6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=431894669]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_4o44f")
 animation = &"attack_up"
 autoplay = "idle_down"
