@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bjtretx7bd1dc"]
+
+[ext_resource type="Texture2D" uid="uid://d2a8l4whljcrr" path="res://art/objects/gb-jam-item-tileset.png" id="1_gfidq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr6qr"]
+atlas = ExtResource("1_gfidq")
+region = Rect2(16, 32, 16, 16)
+
+[node name="Node2D" type="Node2D" unique_id=971140804]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1563106895]
+texture = SubResource("AtlasTexture_cr6qr")
