@@ -12,7 +12,7 @@ func _init():
 	
 	set_collision_layer_value(1, false)
 	set_collision_layer_value(2, true)
-	set_collision_mask_value(1, false)
+	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, false)
 
 var interact: Callable = func():
